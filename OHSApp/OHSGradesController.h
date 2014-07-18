@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OHSSecondViewController : UIViewController
+@interface OHSGradesController : UIViewController
 
 @end

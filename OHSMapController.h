@@ -1,5 +1,5 @@
 //
-//  OHSFirstViewController.h
+//  OHSMapControllerViewController.h
 //  OHSApp
 //
 //  Created by Jon Janzen on 7/17/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OHSFirstViewController : UIViewController
+@interface OHSMapController : UIViewController
 
 @end

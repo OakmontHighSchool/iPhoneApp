@@ -1,18 +1,18 @@
 //
-//  OHSFirstViewController.m
+//  OHSSecondViewController.m
 //  OHSApp
 //
 //  Created by Jon Janzen on 7/17/14.
 //  Copyright (c) 2014 Oakmont High School. All rights reserved.
 //
 
-#import "OHSFirstViewController.h"
+#import "OHSGradesController.h"
 
-@interface OHSFirstViewController ()
+@interface OHSGradesController ()
 
 @end
 
-@implementation OHSFirstViewController
+@implementation OHSGradesController
 
 - (void)viewDidLoad
 {
