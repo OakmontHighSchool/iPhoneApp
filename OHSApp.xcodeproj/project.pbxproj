@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A2140712197C72B2004664B9 /* OHSNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2140711197C72B2004664B9 /* OHSNewsViewController.m */; };
+		A2140715197C7367004664B9 /* OHSNewsArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = A2140714197C7367004664B9 /* OHSNewsArticle.m */; };
 		A23F4FFD19789F000053CEB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23F4FFC19789F000053CEB0 /* Foundation.framework */; };
 		A23F4FFF19789F000053CEB0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23F4FFE19789F000053CEB0 /* CoreGraphics.framework */; };
 		A23F500119789F000053CEB0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23F500019789F000053CEB0 /* UIKit.framework */; };
@@ -14,15 +16,13 @@
 		A23F500919789F000053CEB0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A23F500819789F000053CEB0 /* main.m */; };
 		A23F500D19789F000053CEB0 /* OHSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A23F500C19789F000053CEB0 /* OHSAppDelegate.m */; };
 		A23F501019789F000053CEB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A23F500E19789F000053CEB0 /* Main.storyboard */; };
-		A23F501319789F000053CEB0 /* OHSNewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A23F501219789F000053CEB0 /* OHSNewsController.m */; };
-		A23F501619789F000053CEB0 /* OHSGradesController.m in Sources */ = {isa = PBXBuildFile; fileRef = A23F501519789F000053CEB0 /* OHSGradesController.m */; };
 		A23F501819789F000053CEB0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A23F501719789F000053CEB0 /* Images.xcassets */; };
 		A23F501F19789F000053CEB0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23F501E19789F000053CEB0 /* XCTest.framework */; };
 		A23F502019789F000053CEB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23F4FFC19789F000053CEB0 /* Foundation.framework */; };
 		A23F502119789F000053CEB0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23F500019789F000053CEB0 /* UIKit.framework */; };
 		A23F502919789F000053CEB0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A23F502719789F000053CEB0 /* InfoPlist.strings */; };
 		A23F502B19789F000053CEB0 /* OHSAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A23F502A19789F000053CEB0 /* OHSAppTests.m */; };
-		A2549FC51978A60000D83F62 /* OHSMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2549FC41978A60000D83F62 /* OHSMapController.m */; };
+		A27895C31996D20A000390DC /* OHSArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A27895C21996D20A000390DC /* OHSArticleViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A2140710197C72B2004664B9 /* OHSNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHSNewsViewController.h; sourceTree = "<group>"; };
+		A2140711197C72B2004664B9 /* OHSNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHSNewsViewController.m; sourceTree = "<group>"; };
+		A2140713197C7367004664B9 /* OHSNewsArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHSNewsArticle.h; sourceTree = "<group>"; };
+		A2140714197C7367004664B9 /* OHSNewsArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHSNewsArticle.m; sourceTree = "<group>"; };
 		A23F4FF919789F000053CEB0 /* OHSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OHSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A23F4FFC19789F000053CEB0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A23F4FFE19789F000053CEB0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -47,18 +51,14 @@
 		A23F500B19789F000053CEB0 /* OHSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OHSAppDelegate.h; sourceTree = "<group>"; };
 		A23F500C19789F000053CEB0 /* OHSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OHSAppDelegate.m; sourceTree = "<group>"; };
 		A23F500F19789F000053CEB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A23F501119789F000053CEB0 /* OHSNewsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OHSNewsController.h; sourceTree = "<group>"; };
-		A23F501219789F000053CEB0 /* OHSNewsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OHSNewsController.m; sourceTree = "<group>"; };
-		A23F501419789F000053CEB0 /* OHSGradesController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OHSGradesController.h; sourceTree = "<group>"; };
-		A23F501519789F000053CEB0 /* OHSGradesController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OHSGradesController.m; sourceTree = "<group>"; };
 		A23F501719789F000053CEB0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A23F501D19789F000053CEB0 /* OHSAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OHSAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A23F501E19789F000053CEB0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A23F502619789F000053CEB0 /* OHSAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OHSAppTests-Info.plist"; sourceTree = "<group>"; };
 		A23F502819789F000053CEB0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A23F502A19789F000053CEB0 /* OHSAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OHSAppTests.m; sourceTree = "<group>"; };
-		A2549FC31978A60000D83F62 /* OHSMapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OHSMapController.h; path = ../OHSMapController.h; sourceTree = "<group>"; };
-		A2549FC41978A60000D83F62 /* OHSMapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OHSMapController.m; path = ../OHSMapController.m; sourceTree = "<group>"; };
+		A27895C11996D20A000390DC /* OHSArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHSArticleViewController.h; sourceTree = "<group>"; };
+		A27895C21996D20A000390DC /* OHSArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHSArticleViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,13 +120,13 @@
 			children = (
 				A23F500B19789F000053CEB0 /* OHSAppDelegate.h */,
 				A23F500C19789F000053CEB0 /* OHSAppDelegate.m */,
+				A27895C11996D20A000390DC /* OHSArticleViewController.h */,
+				A27895C21996D20A000390DC /* OHSArticleViewController.m */,
+				A2140710197C72B2004664B9 /* OHSNewsViewController.h */,
+				A2140711197C72B2004664B9 /* OHSNewsViewController.m */,
+				A2140713197C7367004664B9 /* OHSNewsArticle.h */,
+				A2140714197C7367004664B9 /* OHSNewsArticle.m */,
 				A23F500E19789F000053CEB0 /* Main.storyboard */,
-				A23F501119789F000053CEB0 /* OHSNewsController.h */,
-				A23F501219789F000053CEB0 /* OHSNewsController.m */,
-				A23F501419789F000053CEB0 /* OHSGradesController.h */,
-				A23F501519789F000053CEB0 /* OHSGradesController.m */,
-				A2549FC31978A60000D83F62 /* OHSMapController.h */,
-				A2549FC41978A60000D83F62 /* OHSMapController.m */,
 				A23F501719789F000053CEB0 /* Images.xcassets */,
 				A23F500319789F000053CEB0 /* Supporting Files */,
 			);
@@ -261,10 +261,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A23F500919789F000053CEB0 /* main.m in Sources */,
-				A23F501619789F000053CEB0 /* OHSGradesController.m in Sources */,
-				A2549FC51978A60000D83F62 /* OHSMapController.m in Sources */,
 				A23F500D19789F000053CEB0 /* OHSAppDelegate.m in Sources */,
-				A23F501319789F000053CEB0 /* OHSNewsController.m in Sources */,
+				A27895C31996D20A000390DC /* OHSArticleViewController.m in Sources */,
+				A2140715197C7367004664B9 /* OHSNewsArticle.m in Sources */,
+				A2140712197C72B2004664B9 /* OHSNewsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

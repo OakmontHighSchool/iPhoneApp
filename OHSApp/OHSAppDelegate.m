@@ -7,12 +7,16 @@
 //
 
 #import "OHSAppDelegate.h"
+#import "OHSNewsArticle.h"
+#import "OHSNewsViewController.h"
 
 @implementation OHSAppDelegate
+{
+    NSMutableArray *_articles;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
     return YES;
 }
 							
