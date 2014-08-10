@@ -10,6 +10,8 @@
 
 @implementation OHSWebsiteViewController
 
+NSString *websiteUrl = @"http://ohs.rjuhsd.us";
+
 -(void)viewDidLoad
 {
     [self loadWebpage];
@@ -25,7 +27,14 @@
 }
 
 -(void)loadWebpage {
-    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://ohs.rjuhsd.us"]]];
+    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:websiteUrl]]];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:websiteUrl]];
+    }
 }
 
 @end

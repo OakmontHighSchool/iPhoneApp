@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OHSCalendarViewController : UIViewController
+@interface OHSCalendarViewController : UIViewController <UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 

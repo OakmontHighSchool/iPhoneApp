@@ -10,8 +10,31 @@
 
 @implementation OHSCalendarViewController
 
+NSString *calendarUrl = @"http://ohs.rjuhsd.us/Page/2";
+
 -(void)viewDidLoad
 {
-    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://ohs.rjuhsd.us/Page/2"]]];
+    [self loadWebpage];
 }
+
+- (IBAction)refreshButtonPressed:(id)sender {
+    [self loadWebpage];
+}
+
+- (IBAction)actionButtonPressed:(id)sender {
+    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles: @"Open with Safari", nil];
+    [popup showInView:self.view];
+}
+
+-(void)loadWebpage {
+    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:calendarUrl]]];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:calendarUrl]];
+    }
+}
+
 @end

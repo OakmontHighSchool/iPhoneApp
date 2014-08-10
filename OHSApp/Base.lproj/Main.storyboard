@@ -236,7 +236,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Calendar" id="tqA-PZ-VOO"/>
-                    <navigationItem key="navigationItem" title="Calendar" id="DMD-fz-mGG"/>
+                    <navigationItem key="navigationItem" title="Calendar" id="DMD-fz-mGG">
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="KNl-6t-vAF">
+                            <connections>
+                                <action selector="actionButtonPressed:" destination="ftf-UD-u2u" id="6Gr-M6-Ibb"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="gtS-vd-dQp">
+                            <connections>
+                                <action selector="refreshButtonPressed:" destination="ftf-UD-u2u" id="Buj-6k-KjK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="webView" destination="QaO-cd-tGY" id="JUA-Iv-Uaw"/>
                     </connections>
