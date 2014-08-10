@@ -91,7 +91,7 @@
         <scene sceneID="VsC-ck-dFv">
             <objects>
                 <navigationController definesPresentationContext="YES" id="NH1-Cf-wPh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Grades" id="EF2-0L-1iG"/>
+                    <tabBarItem key="tabBarItem" title="Grades" image="bar_grades" id="EF2-0L-1iG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DfY-oD-DRn">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -127,7 +127,7 @@
         <scene sceneID="fdb-5N-TgT">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Mtw-yP-fbK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" id="ZVU-Q8-6a2"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="bar_map" id="ZVU-Q8-6a2"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EBt-f5-wao">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -178,7 +178,18 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </webView>
                     <tabBarItem key="tabBarItem" title="Website" id="c3N-V4-Fmt"/>
-                    <navigationItem key="navigationItem" title="Oakmont Website" id="jzC-Ir-THj"/>
+                    <navigationItem key="navigationItem" title="Oakmont Website" id="jzC-Ir-THj">
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="RMP-RG-Cv4">
+                            <connections>
+                                <action selector="actionButtonPressed:" destination="1ai-Pa-dEq" id="ri1-K0-QUx"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="an2-2h-vkX">
+                            <connections>
+                                <action selector="refreshButtonPressed:" destination="1ai-Pa-dEq" id="0lq-Yw-czX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="webView" destination="Hbu-O1-b1v" id="fod-Xm-lmc"/>
                     </connections>
@@ -191,7 +202,7 @@
         <scene sceneID="hM1-qR-gAn">
             <objects>
                 <navigationController definesPresentationContext="YES" id="uIy-9t-00r" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Website" id="kws-H8-YtT"/>
+                    <tabBarItem key="tabBarItem" title="Website" image="bar_website" id="kws-H8-YtT"/>
                     <navigationItem key="navigationItem" id="56H-uU-agi"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pKu-TC-ewY">
                         <autoresizingMask key="autoresizingMask"/>
@@ -238,7 +249,7 @@
         <scene sceneID="aFd-ME-S6N">
             <objects>
                 <navigationController definesPresentationContext="YES" id="dUE-ql-C5E" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Calendar" id="9c0-u1-qAg"/>
+                    <tabBarItem key="tabBarItem" title="Calendar" image="bar_calendar" id="9c0-u1-qAg"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="67t-tz-yt6">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -276,7 +287,7 @@
         <scene sceneID="B9O-HJ-Ls5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0VQ-w8-4gP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="News" id="XGg-0b-64M"/>
+                    <tabBarItem key="tabBarItem" title="News" image="bar_news" id="XGg-0b-64M"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jVB-5X-ho1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -312,6 +323,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bar_calendar" width="32" height="32"/>
+        <image name="bar_grades" width="32" height="32"/>
+        <image name="bar_map" width="32" height="32"/>
+        <image name="bar_news" width="32" height="32"/>
+        <image name="bar_website" width="32" height="32"/>
         <image name="second" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OHSWebsiteViewController : UIViewController
+@interface OHSWebsiteViewController : UIViewController <UIActionSheetDelegate>
 
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 
