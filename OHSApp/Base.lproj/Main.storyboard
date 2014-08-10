@@ -63,7 +63,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MhY-Bh-RA0">
+                            <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MhY-Bh-RA0">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -186,10 +186,10 @@
             </objects>
             <point key="canvasLocation" x="677" y="1849"/>
         </scene>
-        <!--View Controller - Calendar-->
+        <!--Calendar View Controller - Calendar-->
         <scene sceneID="4Jm-Au-YyX">
             <objects>
-                <viewController id="ftf-UD-u2u" sceneMemberID="viewController">
+                <viewController id="ftf-UD-u2u" customClass="OHSCalendarViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MJD-is-rL9"/>
                         <viewControllerLayoutGuide type="bottom" id="xzO-Gs-0hp"/>
@@ -197,13 +197,40 @@
                     <view key="view" contentMode="scaleToFill" id="IVC-aW-F5h">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QaO-cd-tGY">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Calendar" id="tqA-PZ-VOO"/>
+                    <navigationItem key="navigationItem" title="Calendar" id="DMD-fz-mGG"/>
+                    <connections>
+                        <outlet property="webView" destination="QaO-cd-tGY" id="JUA-Iv-Uaw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRy-tG-67a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="669" y="2541"/>
+            <point key="canvasLocation" x="1193" y="2539"/>
+        </scene>
+        <!--Navigation Controller - Calendar-->
+        <scene sceneID="aFd-ME-S6N">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="dUE-ql-C5E" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Calendar" id="9c0-u1-qAg"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="67t-tz-yt6">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ftf-UD-u2u" kind="relationship" relationship="rootViewController" id="dHq-v6-Hdf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1D6-xL-hLY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="677" y="2539"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Vex-rW-GRa">
@@ -220,7 +247,7 @@
                         <segue destination="QUy-BD-bpt" kind="relationship" relationship="viewControllers" id="M8t-EP-wfW"/>
                         <segue destination="7lp-KL-WJz" kind="relationship" relationship="viewControllers" id="H8r-uv-3i0"/>
                         <segue destination="uIy-9t-00r" kind="relationship" relationship="viewControllers" id="LUc-dH-xnD"/>
-                        <segue destination="ftf-UD-u2u" kind="relationship" relationship="viewControllers" id="A6O-eq-5BM"/>
+                        <segue destination="dUE-ql-C5E" kind="relationship" relationship="viewControllers" id="QVR-sC-S86"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>

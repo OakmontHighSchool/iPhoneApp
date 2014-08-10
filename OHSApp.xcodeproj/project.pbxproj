@@ -23,6 +23,7 @@
 		A23F502919789F000053CEB0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A23F502719789F000053CEB0 /* InfoPlist.strings */; };
 		A23F502B19789F000053CEB0 /* OHSAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A23F502A19789F000053CEB0 /* OHSAppTests.m */; };
 		A251E2111997BB9200F7946A /* OHSWebsiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A251E2101997BB9200F7946A /* OHSWebsiteViewController.m */; };
+		A251E2161997BDF800F7946A /* OHSCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A251E2151997BDF800F7946A /* OHSCalendarViewController.m */; };
 		A27895C31996D20A000390DC /* OHSArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A27895C21996D20A000390DC /* OHSArticleViewController.m */; };
 		A27895CA19970ACF000390DC /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = A27895C419970ACF000390DC /* XPathQuery.m */; };
 		A27895CB19970ACF000390DC /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = A27895C719970ACF000390DC /* TFHpple.m */; };
@@ -64,6 +65,8 @@
 		A23F502A19789F000053CEB0 /* OHSAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OHSAppTests.m; sourceTree = "<group>"; };
 		A251E20F1997BB9200F7946A /* OHSWebsiteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHSWebsiteViewController.h; sourceTree = "<group>"; };
 		A251E2101997BB9200F7946A /* OHSWebsiteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHSWebsiteViewController.m; sourceTree = "<group>"; };
+		A251E2141997BDF800F7946A /* OHSCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHSCalendarViewController.h; sourceTree = "<group>"; };
+		A251E2151997BDF800F7946A /* OHSCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHSCalendarViewController.m; sourceTree = "<group>"; };
 		A27895C11996D20A000390DC /* OHSArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHSArticleViewController.h; sourceTree = "<group>"; };
 		A27895C21996D20A000390DC /* OHSArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHSArticleViewController.m; sourceTree = "<group>"; };
 		A27895C419970ACF000390DC /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
@@ -137,14 +140,10 @@
 				A27895CD19970ADE000390DC /* Hpple */,
 				A23F500B19789F000053CEB0 /* OHSAppDelegate.h */,
 				A23F500C19789F000053CEB0 /* OHSAppDelegate.m */,
-				A27895C11996D20A000390DC /* OHSArticleViewController.h */,
-				A27895C21996D20A000390DC /* OHSArticleViewController.m */,
-				A2140710197C72B2004664B9 /* OHSNewsViewController.h */,
-				A2140711197C72B2004664B9 /* OHSNewsViewController.m */,
-				A251E20F1997BB9200F7946A /* OHSWebsiteViewController.h */,
-				A251E2101997BB9200F7946A /* OHSWebsiteViewController.m */,
-				A2140713197C7367004664B9 /* OHSNewsArticle.h */,
-				A2140714197C7367004664B9 /* OHSNewsArticle.m */,
+				A251E2121997BDC700F7946A /* News */,
+				A251E2131997BDDE00F7946A /* Website */,
+				A251E2141997BDF800F7946A /* OHSCalendarViewController.h */,
+				A251E2151997BDF800F7946A /* OHSCalendarViewController.m */,
 				A23F500E19789F000053CEB0 /* Main.storyboard */,
 				A23F501719789F000053CEB0 /* Images.xcassets */,
 				A23F500319789F000053CEB0 /* Supporting Files */,
@@ -179,6 +178,28 @@
 				A23F502719789F000053CEB0 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A251E2121997BDC700F7946A /* News */ = {
+			isa = PBXGroup;
+			children = (
+				A27895C11996D20A000390DC /* OHSArticleViewController.h */,
+				A27895C21996D20A000390DC /* OHSArticleViewController.m */,
+				A2140710197C72B2004664B9 /* OHSNewsViewController.h */,
+				A2140711197C72B2004664B9 /* OHSNewsViewController.m */,
+				A2140713197C7367004664B9 /* OHSNewsArticle.h */,
+				A2140714197C7367004664B9 /* OHSNewsArticle.m */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		A251E2131997BDDE00F7946A /* Website */ = {
+			isa = PBXGroup;
+			children = (
+				A251E20F1997BB9200F7946A /* OHSWebsiteViewController.h */,
+				A251E2101997BB9200F7946A /* OHSWebsiteViewController.m */,
+			);
+			name = Website;
 			sourceTree = "<group>";
 		};
 		A27895CD19970ADE000390DC /* Hpple */ = {
@@ -303,6 +324,7 @@
 				A27895CC19970ACF000390DC /* TFHppleElement.m in Sources */,
 				A23F500919789F000053CEB0 /* main.m in Sources */,
 				A23F500D19789F000053CEB0 /* OHSAppDelegate.m in Sources */,
+				A251E2161997BDF800F7946A /* OHSCalendarViewController.m in Sources */,
 				A27895C31996D20A000390DC /* OHSArticleViewController.m in Sources */,
 				A251E2111997BB9200F7946A /* OHSWebsiteViewController.m in Sources */,
 				A27895CB19970ACF000390DC /* TFHpple.m in Sources */,

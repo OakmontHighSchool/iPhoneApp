@@ -12,7 +12,6 @@
 
 -(void) viewDidLoad
 {
-    _webView.scalesPageToFit = YES;
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.url]]];
 }
 
