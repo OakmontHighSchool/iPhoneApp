@@ -159,7 +159,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" id="wxE-p7-vBx"/>
-                    <navigationItem key="navigationItem" title="Campus Map" id="bOe-77-oef"/>
+                    <navigationItem key="navigationItem" title="Campus Map" id="bOe-77-oef">
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="bTI-9h-CYy">
+                            <connections>
+                                <action selector="actionButtonPressed:" destination="7lp-KL-WJz" id="jid-gt-0Mn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="scrollView" destination="StO-gm-bhj" id="i0F-kW-f3k"/>
                     </connections>

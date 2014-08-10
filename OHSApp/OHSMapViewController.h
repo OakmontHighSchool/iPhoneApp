@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OHSMapViewController : UIViewController <UIScrollViewDelegate>
+@interface OHSMapViewController : UIViewController <UIScrollViewDelegate, UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 

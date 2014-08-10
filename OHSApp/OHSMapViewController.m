@@ -33,4 +33,16 @@
     [self.scrollView addSubview:self.imageView];
 }
 
+- (IBAction)actionButtonPressed:(id)sender {
+    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles: @"Save Image", nil];
+    [popup showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0) {
+        UIImageWriteToSavedPhotosAlbum(self.imageView.image, nil, nil, nil);
+    }
+}
+
 @end
