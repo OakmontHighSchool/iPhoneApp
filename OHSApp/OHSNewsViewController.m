@@ -86,6 +86,7 @@
         UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
         OHSArticleViewController *controller = (OHSArticleViewController *)navController.topViewController;
         OHSNewsArticle *article = [self.articles objectAtIndex:rowId];
+        //Get the link url
         NSString *url = article.link;
         //Remove the rubish at the beginning
         url = [url substringFromIndex:5];
