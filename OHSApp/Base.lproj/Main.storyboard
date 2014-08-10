@@ -150,15 +150,41 @@
             </objects>
             <point key="canvasLocation" x="669" y="1183"/>
         </scene>
-        <!--View Controller - Website-->
+        <!--Website View Controller - Oakmont Website-->
         <scene sceneID="OMS-ax-ah8">
             <objects>
-                <viewController id="1ai-Pa-dEq" sceneMemberID="viewController">
+                <viewController id="1ai-Pa-dEq" customClass="OHSWebsiteViewController" sceneMemberID="viewController">
+                    <webView key="view" contentMode="scaleToFill" scalesPageToFit="YES" id="Hbu-O1-b1v">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </webView>
                     <tabBarItem key="tabBarItem" title="Website" id="c3N-V4-Fmt"/>
+                    <navigationItem key="navigationItem" title="Oakmont Website" id="jzC-Ir-THj"/>
+                    <connections>
+                        <outlet property="webView" destination="Hbu-O1-b1v" id="fod-Xm-lmc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lPK-78-zVW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="669" y="1859"/>
+            <point key="canvasLocation" x="1193" y="1849"/>
+        </scene>
+        <!--Navigation Controller - Website-->
+        <scene sceneID="hM1-qR-gAn">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="uIy-9t-00r" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Website" id="kws-H8-YtT"/>
+                    <navigationItem key="navigationItem" id="56H-uU-agi"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pKu-TC-ewY">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="1ai-Pa-dEq" kind="relationship" relationship="rootViewController" id="cwx-70-6CP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Gb-hj-UoL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="677" y="1849"/>
         </scene>
         <!--View Controller - Calendar-->
         <scene sceneID="4Jm-Au-YyX">
@@ -193,8 +219,8 @@
                         <segue destination="0VQ-w8-4gP" kind="relationship" relationship="viewControllers" id="WBn-Hj-4yn"/>
                         <segue destination="QUy-BD-bpt" kind="relationship" relationship="viewControllers" id="M8t-EP-wfW"/>
                         <segue destination="7lp-KL-WJz" kind="relationship" relationship="viewControllers" id="H8r-uv-3i0"/>
-                        <segue destination="1ai-Pa-dEq" kind="relationship" relationship="viewControllers" id="wrR-vh-uiL"/>
-                        <segue destination="ftf-UD-u2u" kind="relationship" relationship="viewControllers" id="0aL-f0-szy"/>
+                        <segue destination="uIy-9t-00r" kind="relationship" relationship="viewControllers" id="LUc-dH-xnD"/>
+                        <segue destination="ftf-UD-u2u" kind="relationship" relationship="viewControllers" id="A6O-eq-5BM"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
