@@ -142,8 +142,7 @@
 				A23F500C19789F000053CEB0 /* OHSAppDelegate.m */,
 				A251E2121997BDC700F7946A /* News */,
 				A251E2131997BDDE00F7946A /* Website */,
-				A251E2141997BDF800F7946A /* OHSCalendarViewController.h */,
-				A251E2151997BDF800F7946A /* OHSCalendarViewController.m */,
+				A251E2171997BFCE00F7946A /* Calendar */,
 				A23F500E19789F000053CEB0 /* Main.storyboard */,
 				A23F501719789F000053CEB0 /* Images.xcassets */,
 				A23F500319789F000053CEB0 /* Supporting Files */,
@@ -200,6 +199,15 @@
 				A251E2101997BB9200F7946A /* OHSWebsiteViewController.m */,
 			);
 			name = Website;
+			sourceTree = "<group>";
+		};
+		A251E2171997BFCE00F7946A /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				A251E2141997BDF800F7946A /* OHSCalendarViewController.h */,
+				A251E2151997BDF800F7946A /* OHSCalendarViewController.m */,
+			);
+			name = Calendar;
 			sourceTree = "<group>";
 		};
 		A27895CD19970ADE000390DC /* Hpple */ = {
