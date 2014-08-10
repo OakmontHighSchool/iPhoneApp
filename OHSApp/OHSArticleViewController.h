@@ -10,4 +10,8 @@
 
 @interface OHSArticleViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+
+@property(nonatomic) NSString *url;
+
 @end

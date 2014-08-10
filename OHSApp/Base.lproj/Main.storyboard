@@ -30,7 +30,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="apH-xC-xHh" kind="modal" id="iaR-xb-rwk"/>
+                                    <segue destination="apH-xC-xHh" kind="modal" identifier="showArticle" id="iaR-xb-rwk"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -78,6 +78,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="webView" destination="MhY-Bh-RA0" id="zHc-fc-2bK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehi-jb-8CS" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="w8B-js-s7X" userLabel="Exit" sceneMemberID="exit"/>
@@ -220,7 +223,6 @@
         <!--Navigation Controller-->
         <scene sceneID="gPf-N9-IT5">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ex7-OK-OsX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="apH-xC-xHh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="7dH-kl-Ig4"/>
@@ -233,6 +235,7 @@
                         <segue destination="JtM-u0-hmS" kind="relationship" relationship="rootViewController" id="DLD-qv-NNv"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ex7-OK-OsX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1602" y="-204"/>
         </scene>

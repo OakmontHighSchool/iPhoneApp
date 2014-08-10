@@ -8,6 +8,8 @@
 
 #import "OHSNewsViewController.h"
 #import "OHSNewsArticle.h"
+#import "TFHpple.h"
+#import "OHSArticleViewController.h"
 
 @interface OHSNewsViewController ()
 
@@ -21,33 +23,37 @@
 }
 
 - (IBAction)reloadArticles:(id)sender {
-    [self loadRandomArticles];
+    [self downloadNewsArticles];
 }
 
-- (void)loadRandomArticles
+- (void)downloadNewsArticles
 {
+    // 1
+    NSURL *newsUrl = [NSURL URLWithString:@"http://ohs.rjuhsd.us/site/default.aspx?PageID=1"];
+    NSData *newsHtmlData = [NSData dataWithContentsOfURL:newsUrl];
     
-    NSInteger size = 20;
+    TFHpple *newsParser = [TFHpple hppleWithHTMLData:newsHtmlData];
     
-    _articles = [NSMutableArray arrayWithCapacity:size];
+    //Get all the titles into an array
+    NSString *titleXpathQueryString = @"//div[@class='ui-widget app headlines']/div[@class='ui-widget-detail']/ul[@class='ui-articles']/li/div/h1/a/span/text()";
+    NSArray *titleNodes = [newsParser searchWithXPathQuery:titleXpathQueryString];
     
-    NSString *alphabet  = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXZY0123456789";
+    //Get all the links into an array, hopefully in the same order as above
+    NSString *linkXpathQueryString = @"//div[@class='ui-widget app headlines']/div[@class='ui-widget-detail']/ul[@class='ui-articles']/li/div/h1/a/@href";
+    NSArray *linkNodes = [newsParser searchWithXPathQuery:linkXpathQueryString];
     
-    for (int i=0; i<size; i++) {
+    NSMutableArray *newArticles = [[NSMutableArray alloc] initWithCapacity:0];
+    for(int i=0;i<[titleNodes count];i++) {
         OHSNewsArticle *article = [[OHSNewsArticle alloc] init];
-        NSMutableString *title = [NSMutableString stringWithCapacity:20];
-        for (NSUInteger i = 0U; i < 20; i++) {
-            u_int32_t r = arc4random() % [alphabet length];
-            unichar c = [alphabet characterAtIndex:r];
-            [title appendFormat:@"%C", c];
-        }
-        article.title = title;
-        article.link = @"172.0.0.1";
-        [_articles addObject:article];
+        
+        article.title = [[titleNodes objectAtIndex:i] content];
+        
+        article.link = [[linkNodes objectAtIndex:i] text];
+        
+        [newArticles addObject:article];
     }
     
-    self.articles = _articles;
-    NSLog(@"Loaded %lu articles",(unsigned long)[self.articles count]);
+    self.articles = newArticles;
     [self.tableView reloadData];
 }
 
@@ -69,7 +75,24 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    [self loadRandomArticles];
+    [self downloadNewsArticles];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"showArticle"]){
+        //Get row id
+        NSInteger rowId = [self.tableView indexPathForSelectedRow].row;
+        //Get new view controller...
+        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
+        OHSArticleViewController *controller = (OHSArticleViewController *)navController.topViewController;
+        OHSNewsArticle *article = [self.articles objectAtIndex:rowId];
+        NSString *url = article.link;
+        //Remove the rubish at the beginning
+        url = [url substringFromIndex:5];
+        //Add the proper domain
+        url = [NSString stringWithFormat:@"%@%@", @"http://ohs.rjuhsd.us", url];
+        controller.url = url;
+    }
 }
 
 - (void)didReceiveMemoryWarning
