@@ -24,6 +24,7 @@
 		A23F502B19789F000053CEB0 /* OHSAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A23F502A19789F000053CEB0 /* OHSAppTests.m */; };
 		A251E2111997BB9200F7946A /* OHSWebsiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A251E2101997BB9200F7946A /* OHSWebsiteViewController.m */; };
 		A251E2161997BDF800F7946A /* OHSCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A251E2151997BDF800F7946A /* OHSCalendarViewController.m */; };
+		A251E21A1997C35000F7946A /* OHSMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A251E2191997C35000F7946A /* OHSMapViewController.m */; };
 		A27895C31996D20A000390DC /* OHSArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A27895C21996D20A000390DC /* OHSArticleViewController.m */; };
 		A27895CA19970ACF000390DC /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = A27895C419970ACF000390DC /* XPathQuery.m */; };
 		A27895CB19970ACF000390DC /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = A27895C719970ACF000390DC /* TFHpple.m */; };
@@ -67,6 +68,8 @@
 		A251E2101997BB9200F7946A /* OHSWebsiteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHSWebsiteViewController.m; sourceTree = "<group>"; };
 		A251E2141997BDF800F7946A /* OHSCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHSCalendarViewController.h; sourceTree = "<group>"; };
 		A251E2151997BDF800F7946A /* OHSCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHSCalendarViewController.m; sourceTree = "<group>"; };
+		A251E2181997C35000F7946A /* OHSMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHSMapViewController.h; sourceTree = "<group>"; };
+		A251E2191997C35000F7946A /* OHSMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHSMapViewController.m; sourceTree = "<group>"; };
 		A27895C11996D20A000390DC /* OHSArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHSArticleViewController.h; sourceTree = "<group>"; };
 		A27895C21996D20A000390DC /* OHSArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHSArticleViewController.m; sourceTree = "<group>"; };
 		A27895C419970ACF000390DC /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
@@ -143,6 +146,8 @@
 				A251E2121997BDC700F7946A /* News */,
 				A251E2131997BDDE00F7946A /* Website */,
 				A251E2171997BFCE00F7946A /* Calendar */,
+				A251E2181997C35000F7946A /* OHSMapViewController.h */,
+				A251E2191997C35000F7946A /* OHSMapViewController.m */,
 				A23F500E19789F000053CEB0 /* Main.storyboard */,
 				A23F501719789F000053CEB0 /* Images.xcassets */,
 				A23F500319789F000053CEB0 /* Supporting Files */,
@@ -334,6 +339,7 @@
 				A23F500D19789F000053CEB0 /* OHSAppDelegate.m in Sources */,
 				A251E2161997BDF800F7946A /* OHSCalendarViewController.m in Sources */,
 				A27895C31996D20A000390DC /* OHSArticleViewController.m in Sources */,
+				A251E21A1997C35000F7946A /* OHSMapViewController.m in Sources */,
 				A251E2111997BB9200F7946A /* OHSWebsiteViewController.m in Sources */,
 				A27895CB19970ACF000390DC /* TFHpple.m in Sources */,
 				A2140715197C7367004664B9 /* OHSNewsArticle.m in Sources */,
@@ -463,6 +469,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OHSApp/OHSApp-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -482,6 +489,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OHSApp/OHSApp-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
