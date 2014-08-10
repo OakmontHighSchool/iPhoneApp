@@ -47,7 +47,7 @@
     }
     
     self.articles = _articles;
-    NSLog(@"Article count: %lu",(unsigned long)[self.articles count]);
+    NSLog(@"Loaded %lu articles",(unsigned long)[self.articles count]);
     [self.tableView reloadData];
 }
 
