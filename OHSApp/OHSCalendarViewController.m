@@ -22,7 +22,7 @@ NSString *calendarUrl = @"http://ohs.rjuhsd.us/Page/2";
 }
 
 - (IBAction)actionButtonPressed:(id)sender {
-    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles: @"Open with Safari", nil];
+    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles: @"Open in Safari", nil];
     [popup showInView:self.view];
 }
 
