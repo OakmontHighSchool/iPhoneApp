@@ -42,7 +42,7 @@
     NSString *linkXpathQueryString = @"//div[@class='ui-widget app headlines']/div[@class='ui-widget-detail']/ul[@class='ui-articles']/li/div/h1/a/@href";
     NSArray *linkNodes = [newsParser searchWithXPathQuery:linkXpathQueryString];
     
-    NSMutableArray *newArticles = [[NSMutableArray alloc] initWithCapacity:0];
+    NSMutableArray *newArticles = [[NSMutableArray alloc] initWithCapacity:10];
     for(int i=0;i<[titleNodes count];i++) {
         OHSNewsArticle *article = [[OHSNewsArticle alloc] init];
         
