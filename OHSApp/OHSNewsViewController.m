@@ -34,12 +34,15 @@
     
     TFHpple *newsParser = [TFHpple hppleWithHTMLData:newsHtmlData];
     
+    
+    NSString *baseXpathQueryString = @"//div[@class='ui-widget app headlines']/div[@class='ui-widget-detail']/ul[@class='ui-articles']/li/div/h1/a";
+    NSString *titleXpathQueryString = [NSString stringWithFormat:@"%@%@",baseXpathQueryString,@"/span/text()"];
+    NSString *linkXpathQueryString = [NSString stringWithFormat:@"%@%@",baseXpathQueryString,@"/@href"];
+    
     //Get all the titles into an array
-    NSString *titleXpathQueryString = @"//div[@class='ui-widget app headlines']/div[@class='ui-widget-detail']/ul[@class='ui-articles']/li/div/h1/a/span/text()";
     NSArray *titleNodes = [newsParser searchWithXPathQuery:titleXpathQueryString];
     
     //Get all the links into an array, hopefully in the same order as above
-    NSString *linkXpathQueryString = @"//div[@class='ui-widget app headlines']/div[@class='ui-widget-detail']/ul[@class='ui-articles']/li/div/h1/a/@href";
     NSArray *linkNodes = [newsParser searchWithXPathQuery:linkXpathQueryString];
     
     NSMutableArray *newArticles = [[NSMutableArray alloc] initWithCapacity:10];
