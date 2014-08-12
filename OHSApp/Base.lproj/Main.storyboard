@@ -96,30 +96,61 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="QUy-BD-bpt" kind="relationship" relationship="rootViewController" id="eGz-jK-aFI"/>
+                        <segue destination="F4o-zo-JnF" kind="relationship" relationship="rootViewController" id="c2Q-oz-3yF"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LhT-wS-MSN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="653" y="504"/>
         </scene>
-        <!--View Controller - Grades-->
-        <scene sceneID="ot8-2e-RuS">
+        <!--Login View Controller - Accounts-->
+        <scene sceneID="30p-bd-2vN">
             <objects>
-                <viewController title="Grades" id="QUy-BD-bpt" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="FgS-U6-xeU"/>
-                        <viewControllerLayoutGuide type="bottom" id="stI-4g-hlJ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gMD-aP-Fq6">
+                <tableViewController id="F4o-zo-JnF" customClass="OHSLoginViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ovA-1w-3Kg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Grades" image="second" id="Z7h-1E-pvt"/>
-                    <navigationItem key="navigationItem" title="Grades" id="A8O-50-pIk"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3qq-4t-Ow8" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AccountsItem" textLabel="4GU-un-Npv" style="IBUITableViewCellStyleDefault" id="Hh5-dD-ML5">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hh5-dD-ML5" id="slK-H7-b8U">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4GU-un-Npv">
+                                            <rect key="frame" x="15" y="0.0" width="270" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="3u3-N2-3r2" kind="push" id="HSf-cP-DUf"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="F4o-zo-JnF" id="tls-oj-VlG"/>
+                            <outlet property="delegate" destination="F4o-zo-JnF" id="L3j-cK-8WX"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Accounts" id="5aG-xt-ZVd">
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" systemItem="add" id="GxD-pJ-O90"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="1rf-jx-GRC">
+                            <connections>
+                                <action selector="editButtonPressed:" destination="F4o-zo-JnF" id="yAY-72-WUd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="GxD-pJ-O90" id="FZb-Hp-DnJ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="usu-4B-lDl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1179" y="504"/>
         </scene>
@@ -338,6 +369,75 @@
             </objects>
             <point key="canvasLocation" x="1602" y="-204"/>
         </scene>
+        <!--Article View Controller - Classes-->
+        <scene sceneID="IGY-rH-vbY">
+            <objects>
+                <viewController id="3u3-N2-3r2" customClass="OHSArticleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5Ce-dU-oQH"/>
+                        <viewControllerLayoutGuide type="bottom" id="4Ue-d5-8nj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Sb3-SZ-HsF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Classes" id="6lt-FD-lCF">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="chq-5G-zDq">
+                            <connections>
+                                <segue destination="xFJ-bw-7Q7" kind="push" id="d91-bR-v5E"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qz4-ii-Z9r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1602" y="504"/>
+        </scene>
+        <!--View Controller - Grades-->
+        <scene sceneID="NCl-UG-1Z6">
+            <objects>
+                <viewController id="xFJ-bw-7Q7" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L6l-W0-Xcn"/>
+                        <viewControllerLayoutGuide type="bottom" id="eaa-GV-D25"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4K2-Fh-Kls">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Grades" id="vse-Cd-XXd">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="we8-tE-gMj">
+                            <connections>
+                                <segue destination="8OD-Ft-kZp" kind="push" id="hEL-F8-cLE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="idP-X7-Ad6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2128" y="504"/>
+        </scene>
+        <!--View Controller - Assignment-->
+        <scene sceneID="jnh-Wk-bua">
+            <objects>
+                <viewController id="8OD-Ft-kZp" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aox-JJ-L7Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="rmd-9O-BAf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rHy-qI-usW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Assignment" id="W45-Mb-n6k"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZXj-2c-QSe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2503" y="504"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bar_calendar" width="32" height="32"/>
@@ -345,7 +445,6 @@
         <image name="bar_map" width="32" height="32"/>
         <image name="bar_news" width="32" height="32"/>
         <image name="bar_website" width="32" height="32"/>
-        <image name="second" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
