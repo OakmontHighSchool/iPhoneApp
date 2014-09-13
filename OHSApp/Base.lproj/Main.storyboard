@@ -139,15 +139,19 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Accounts" id="5aG-xt-ZVd">
-                        <barButtonItem key="leftBarButtonItem" enabled="NO" systemItem="add" id="GxD-pJ-O90"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="1rf-jx-GRC">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="GxD-pJ-O90">
+                            <connections>
+                                <segue destination="769-b6-mz5" kind="modal" id="wv7-gg-XAe"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="1rf-jx-GRC">
                             <connections>
                                 <action selector="editButtonPressed:" destination="F4o-zo-JnF" id="yAY-72-WUd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addButton" destination="GxD-pJ-O90" id="FZb-Hp-DnJ"/>
+                        <outlet property="editButton" destination="1rf-jx-GRC" id="NSe-6O-TMf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="usu-4B-lDl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -204,6 +208,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yf9-0l-r5x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1193" y="1193"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qFx-zf-ASf">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="769-b6-mz5" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lh1-o2-BBP">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gFT-rR-Upq" kind="relationship" relationship="rootViewController" id="UIu-a6-PYz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ie1-0t-Riw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1602" y="1193"/>
+        </scene>
+        <!--Add Account View Controller - Add Account-->
+        <scene sceneID="EOL-wj-cLW">
+            <objects>
+                <viewController id="gFT-rR-Upq" customClass="OHSAddAccountViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RZo-Qd-djk"/>
+                        <viewControllerLayoutGuide type="bottom" id="eqs-Vr-Zcv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="saj-RS-IHd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RrI-Th-HJ6">
+                                <rect key="frame" x="20" y="76" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Adc-4q-4Wc">
+                                <rect key="frame" x="20" y="114" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Account" id="5gg-af-9k3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="0yh-re-lHA">
+                            <connections>
+                                <segue destination="9tS-lh-91x" kind="unwind" unwindAction="unwindToArticleOverview:" id="XQo-LL-zbC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="emailField" destination="RrI-Th-HJ6" id="wVH-qO-4qB"/>
+                        <outlet property="passwordField" destination="Adc-4q-4Wc" id="xLC-eE-TwO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="88Q-qc-WKh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="9tS-lh-91x" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2128" y="1193"/>
         </scene>
         <!--Website View Controller - Oakmont Website-->
         <scene sceneID="OMS-ax-ah8">

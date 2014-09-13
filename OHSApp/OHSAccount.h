@@ -10,7 +10,11 @@
 
 @interface OHSAccount : NSObject
 
-@property (nonatomic, copy) NSString *email;
-@property (nonatomic, copy) NSString *password;
+@property (nonatomic, strong) NSString *email;
+@property (nonatomic, strong) NSString *password;
+@property (nonatomic) NSInteger *identifier;
+
+-(BOOL)getClasses;
+-(void)save;
 
 @end

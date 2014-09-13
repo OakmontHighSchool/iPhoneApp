@@ -10,7 +10,9 @@
 
 @interface OHSLoginViewController : UITableViewController
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
+
+- (IBAction)unwindToArticleOverview:(UIStoryboardSegue *)segue;
 
 @property (strong, nonatomic) NSMutableArray *accounts;
 
