@@ -17,5 +17,6 @@
 @property (strong, nonatomic) NSString *mark;
 @property (strong, nonatomic) NSString *missingAssign;
 @property (strong, nonatomic) NSString *lastUpdate;
+@property (strong, nonatomic) NSString *aeriesID;
 
 @end

@@ -83,11 +83,7 @@ BOOL isEditing = NO;
         NSInteger rowId = [self.tableView indexPathForSelectedRow].row;
         //Get new view controller...
         OHSClassesViewController *controller = (OHSClassesViewController *)segue.destinationViewController;
-        OHSAccount *account = [self.accountManager.accounts objectAtIndex:rowId];
-        NSString *email = account.email;
-        NSString *password = account.password;
-        controller.email = email;
-        controller.password = password;
+        controller.account = [self.accountManager.accounts objectAtIndex:rowId];
     }
 }
 

@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "TFHpple.h"
 #import "OHSClass.h"
+#import "OHSAccount.h"
+#import "OHSClassDetailViewController.h"
 
 @interface OHSClassesViewController : UITableViewController<NSURLConnectionDelegate>
 
 @property (retain, nonatomic) NSMutableData *receivedData;
-@property (nonatomic) NSString *email;
-@property (nonatomic) NSString *password;
+@property (nonatomic) OHSAccount *account;
 
 @end

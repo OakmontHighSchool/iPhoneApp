@@ -22,13 +22,12 @@ NSMutableArray *classes;
 
 - (void)downloadClasses {
     NSURL *loginUrl = [NSURL URLWithString:loginURLString];
-    //NSData *loginHtmlData = [NSData dataWithContentsOfURL:loginURL];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:loginUrl];
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
     
-    NSString *postString = [NSString stringWithFormat:@"portalAccountUsername=%@&portalAccountPassword=%@&checkCookiesEnables=true&checkSilverlightSupport=true&checkMobileDevice=false&checkStandaloneMode=false&checkTabletDevice=false",_email,_password];
+    NSString *postString = [NSString stringWithFormat:@"portalAccountUsername=%@&portalAccountPassword=%@&checkCookiesEnables=true&checkSilverlightSupport=true&checkMobileDevice=false&checkStandaloneMode=false&checkTabletDevice=false",[self.account email],[self.account password]];
     NSData *data = [postString dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPBody:data];
     [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[data length]] forHTTPHeaderField:@"Content-Length"];
@@ -109,6 +108,18 @@ NSMutableArray *classes;
     cell.textLabel.text = class.name;
     
     return cell;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"viewClass"]){
+        //Get row id
+        NSInteger rowId = [self.tableView indexPathForSelectedRow].row;
+        //Get new view controller...
+        OHSClassDetailViewController *controller = (OHSClassDetailViewController *)segue.destinationViewController;
+        OHSClass *class = [classes objectAtIndex:rowId];
+        controller.account = self.account;
+        controller.schoolClass = class;
+    }
 }
 
 @end
