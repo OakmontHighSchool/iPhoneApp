@@ -12,18 +12,7 @@
 @implementation OHSLoginViewController
 
 - (void)viewDidLoad {
-    self.accounts = [[NSMutableArray alloc] initWithCapacity:2];
-    
-    /*OHSAccount *account = [[OHSAccount alloc] init];
-    account.email = @"odin.viking@email.com";
-    account.password = @"NOTACHANCE";
-    [self.accounts addObject:account];
-    
-    account = [[OHSAccount alloc] init];
-    account.email = @"first.last@email.com";
-    account.password = @"NOTACHANCE";
-    [self.accounts addObject:account];*/
-    
+    self.accountManager = [[OHSAccountManager alloc] init];
     [self.tableView reloadData];
 }
 
@@ -31,7 +20,7 @@ BOOL isEditing = NO;
 
 - (IBAction)unwindToArticleOverview:(UIStoryboardSegue *)segue
 {
-    //Necessary for some reason
+    [self reloadTable];
 }
 
 - (IBAction)editButtonPressed:(id)sender {
@@ -59,20 +48,47 @@ BOOL isEditing = NO;
     return 1;
 }
 
+- (void)reloadTable {
+    [self.accountManager reload];
+    [self.tableView reloadData];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.accounts count];
+    return [self.accountManager.accounts count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AccountsItem" forIndexPath:indexPath];
     
-    OHSAccount *account = (self.accounts)[indexPath.row];
+    OHSAccount *account = (self.accountManager.accounts)[indexPath.row];
     cell.textLabel.text = account.email;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.accountManager removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"viewClasses"]){
+        //Get row id
+        NSInteger rowId = [self.tableView indexPathForSelectedRow].row;
+        //Get new view controller...
+        OHSClassesViewController *controller = (OHSClassesViewController *)segue.destinationViewController;
+        OHSAccount *account = [self.accountManager.accounts objectAtIndex:rowId];
+        NSString *email = account.email;
+        NSString *password = account.password;
+        controller.email = email;
+        controller.password = password;
+    }
 }
 
 @end

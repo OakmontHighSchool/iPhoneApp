@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OHSAccountManager.h"
+#import "OHSClassesViewController.h"
 
 @interface OHSLoginViewController : UITableViewController
 
@@ -14,6 +16,6 @@
 
 - (IBAction)unwindToArticleOverview:(UIStoryboardSegue *)segue;
 
-@property (strong, nonatomic) NSMutableArray *accounts;
+@property (strong, nonatomic) OHSAccountManager *accountManager;
 
 @end

@@ -10,34 +10,36 @@
 
 @implementation OHSAccountManager
 
-NSMutableArray *accounts;
 NSString *filePath;
 
 -(id)init {
     if(self = [super init]) {
-        filePath = [[NSBundle mainBundle] pathForResource:@"accounts" ofType:@"json"];
-        NSLog(@"Filepath: %@", filePath);
-        accounts = [[NSMutableArray alloc] init];
-        NSData *fileData = [NSData dataWithContentsOfFile:filePath];
-        NSString *fileString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-        NSLog(@"File data:%@",fileData);
-        NSLog(@"File string:%@",fileString);
-        NSArray *json = [NSJSONSerialization JSONObjectWithData:fileData options:kNilOptions error:nil];
-        
-        NSLog(@"Count: %lu",(unsigned long)[json count]);
-        
-        for(int i=0;i<[json count];i++) {
-            NSDictionary *dict = [json objectAtIndex:i];
-            OHSAccount *account = [[OHSAccount alloc] init];
-            account.email = [dict objectForKey:@"email"];
-            account.password = [dict objectForKey:@"password"];
-            NSLog(@"%@,%@",account.email,account.password);
-            [accounts addObject:account];
-        }
-        
+        [self reload];
         return self;
     } else {
         return nil;
+    }
+}
+
+-(void)reload {
+    NSString* dirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString* fileName = @"profiles.js";
+    filePath = [dirPath stringByAppendingPathComponent:fileName];
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+        [[NSFileManager defaultManager] createFileAtPath:filePath contents:nil attributes:nil];
+    }
+    //filePath = [[NSBundle mainBundle] pathForResource:@"accounts" ofType:@"json"];
+    _accounts = [[NSMutableArray alloc] init];
+    NSData *fileData = [NSData dataWithContentsOfFile:filePath];
+    NSArray *json = [NSJSONSerialization JSONObjectWithData:fileData options:kNilOptions error:nil];
+    
+    for(int i=0;i<[json count];i++) {
+        NSDictionary *dict = [json objectAtIndex:i];
+        OHSAccount *account = [[OHSAccount alloc] init];
+        account.email = [dict objectForKey:@"email"];
+        account.password = [dict objectForKey:@"password"];
+        [_accounts addObject:account];
     }
 }
 
@@ -45,16 +47,20 @@ NSString *filePath;
     
 }
 
+-(void)removeObjectAtIndex:(NSInteger)index {
+    [self.accounts removeObjectAtIndex:index];
+    [self saveFile];
+}
+
 -(void)saveNewAccount:(OHSAccount *)account {
-    [accounts addObject:account];
+    [_accounts addObject:account];
     [self saveFile];
 }
 
 -(void)saveFile {
     NSMutableArray *jsonAccounts = [[NSMutableArray alloc] init];
-    NSLog(@"Accounts to save: %lu", (unsigned long)[accounts count]);
-    for (int i=0;i<[accounts count];i++) {
-        OHSAccount *account = [accounts objectAtIndex:i];
+    for (int i=0;i<[_accounts count];i++) {
+        OHSAccount *account = [_accounts objectAtIndex:i];
         NSArray *objects=[[NSArray alloc]initWithObjects:account.email,account.password,nil];
         NSArray *keys=[[NSArray alloc]initWithObjects:@"email",@"password",nil];
         NSDictionary *dict=[NSDictionary dictionaryWithObjects:objects forKeys:keys];

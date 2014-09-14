@@ -12,4 +12,7 @@
 @interface OHSAccountManager : NSObject
 -(void)saveChangesFor: (OHSAccount*)account;
 -(void)saveNewAccount: (OHSAccount*)account;
+-(void)reload;
+-(void)removeObjectAtIndex: (NSInteger)index;
+@property (strong, nonatomic) NSMutableArray *accounts;
 @end
