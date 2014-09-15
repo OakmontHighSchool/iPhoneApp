@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "OHSClass.h"
-#import "OHSAccount.h"
 #import "OHSAssignment.h"
 #import "TFHpple.h"
 #import "OHSAssignmentViewController.h"
@@ -16,6 +15,5 @@
 @interface OHSClassDetailViewController : UITableViewController<NSURLConnectionDelegate>
 
 @property (nonatomic, strong) OHSClass *schoolClass;
-@property (nonatomic, strong) OHSAccount *account;
 
 @end

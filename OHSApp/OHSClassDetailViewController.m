@@ -25,18 +25,6 @@ NSString *detailUrl = @"https://homelink.rjuhsd.us/GradebookDetails.aspx";
 }
 
 - (void)downloadClasses {
-    /*NSURL *loginUrl = [NSURL URLWithString:@"https://homelink.rjuhsd.us/LoginParent.aspx"];
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:loginUrl];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
-    
-    NSString *postString = [NSString stringWithFormat:@"portalAccountUsername=%@&portalAccountPassword=%@&checkCookiesEnables=true&checkSilverlightSupport=true&checkMobileDevice=false&checkStandaloneMode=false&checkTabletDevice=false",[self.account email],[self.account password]];
-    NSData *data = [postString dataUsingEncoding:NSUTF8StringEncoding];
-    [request setHTTPBody:data];
-    [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[data length]] forHTTPHeaderField:@"Content-Length"];
-    [[NSURLConnection connectionWithRequest:request delegate:self] start];*/
-    
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:detailUrl]];
     [self loadIdsWithString:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
 }
@@ -60,12 +48,9 @@ NSMutableData *receivedData;
     for(int i=0;i<[classNames count];i++) {
         NSArray *classIds = [mainParser searchWithXPathQuery:[NSString stringWithFormat:@"%@[%d]/@value",selBase,i+1]];
         NSString *stupidTitle = [[classNames objectAtIndex:i]text];
-        //NSLog(@"Title: %@",stupidTitle);
         NSString *stupidId = [[classIds objectAtIndex:0]text];
-        //NSLog(@"ID: %@",stupidId);
         if(![stupidTitle hasPrefix:@"<<"]) {
             if (!([stupidTitle rangeOfString:[self.schoolClass name]].location == NSNotFound)) {
-                //NSLog(@"Match Found:: Name: %@, ID: %@", stupidTitle, stupidId);
                 self.schoolClass.aeriesID = stupidId;
                 if(i == 0) {
                     skipRequest = YES;
@@ -112,11 +97,7 @@ NSMutableData *receivedData;
     
     NSArray *rows = [mainParser searchWithXPathQuery:rowsBase];
     
-    for(int i=0;i<[rows count];i++) {
-        if([[[rows objectAtIndex:i] objectForKey:@"class"] isEqualToString:@"SubHeaderRow"]) {
-            i++;
-            continue;
-        }
+    for(int i=1;i<=[rows count];i++) {
         NSString *cellsSelector = [NSString stringWithFormat:@"%@[%u]/td",rowsBase,i];
         NSArray *cells = [mainParser searchWithXPathQuery:cellsSelector];
         OHSAssignment *assign = [[OHSAssignment alloc] init];
@@ -130,7 +111,9 @@ NSMutableData *receivedData;
         assign.dateCompleted = [[cells objectAtIndex:9] text];
         assign.dateDue = [[cells objectAtIndex:10] text];
         assign.gradingComplete = [[cells objectAtIndex:11] text];
-        [assignments addObject:assign];
+        if(i != 1) {
+            [assignments addObject:assign];
+        }
     }
     
     [self.tableView reloadData];

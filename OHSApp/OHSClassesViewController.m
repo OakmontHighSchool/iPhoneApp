@@ -117,7 +117,6 @@ NSMutableArray *classes;
         //Get new view controller...
         OHSClassDetailViewController *controller = (OHSClassDetailViewController *)segue.destinationViewController;
         OHSClass *class = [classes objectAtIndex:rowId];
-        controller.account = self.account;
         controller.schoolClass = class;
     }
 }
