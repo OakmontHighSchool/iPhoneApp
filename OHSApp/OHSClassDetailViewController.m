@@ -15,6 +15,7 @@
 @implementation OHSClassDetailViewController
 
 NSMutableArray *assignments;
+NSURLConnection *connection;
 
 NSString *detailUrl = @"https://homelink.rjuhsd.us/GradebookDetails.aspx";
 
@@ -38,9 +39,9 @@ NSMutableData *receivedData;
     
     NSString *viewState = [[[mainParser searchWithXPathQuery:@"//input[@id='__VIEWSTATE']/@value"] objectAtIndex:0] text];
     //NSLog(@"%@",viewState);
+    //NSString *masterScript = [[[mainParser searchWithXPathQuery:@"//input[@id='ctl00_TheMasterScriptManager_HiddenField']/@value"] objectAtIndex:0] text];
     
     NSString *selBase = @"//select[@id='ctl00_MainContent_subGBS_dlGN']/option";
-    
     NSArray *classNames = [mainParser searchWithXPathQuery:selBase];
     
     BOOL skipRequest = NO;
@@ -66,15 +67,33 @@ NSMutableData *receivedData;
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:detailUrl]];
     [request setHTTPMethod:@"POST"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     
-    NSString *postString = [NSString stringWithFormat:@"ctl00$MainContent$subGBS$dlGN=%@&__EVENTTARGET=ctl00&MainContent&subGBS&dlGN&__VIEWSTATE=%@",[self.schoolClass aeriesID],viewState];
+    NSString *postString = [NSString stringWithFormat:@"ctl00$MainContent$subGBS$dlGN=%@&__EVENTTARGET=ctl00&MainContent&subGBS&dlGN",[self.schoolClass aeriesID]];
+    postString = [postString stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
     NSData *data = [postString dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPBody:data];
-    [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[data length]] forHTTPHeaderField:@"Content-Length"];
+    //[request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[data length]] forHTTPHeaderField:@"Content-Length"];
+    
     receivedData = [[NSMutableData alloc] init];
     [NSURLConnection connectionWithRequest:request delegate:self];
+    //NSURLResponse *response;
+    //receivedData = [NSMutableData dataWithData:[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil]];
+    //[self connectionDidFinishLoading:nil];
 }
+
+/*- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace {
+    return [protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
+    NSArray *trustedHosts = [[NSArray alloc] initWithObjects:@"rjuhsd.us", nil];
+    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust])
+        if ([trustedHosts containsObject:challenge.protectionSpace.host])
+            [challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
+    
+    [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
+}*/
 
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     [receivedData appendData:data];
@@ -92,6 +111,8 @@ NSMutableData *receivedData;
 
 -(void)loadTableWithString: (NSString *)htmlStr {
     TFHpple *mainParser = [TFHpple hppleWithHTMLData:[htmlStr dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSLog(@"Title: %@", [mainParser searchWithXPathQuery:@"//title/text()"]);
     
     NSString *rowsBase = @"//table[@id='ctl00_MainContent_subGBS_tblEverything']//div[@id='ctl00_MainContent_subGBS_upEverything']/table[2]/tr/td/table/tr";
     
