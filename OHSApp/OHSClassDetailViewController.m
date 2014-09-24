@@ -29,7 +29,7 @@ NSString *detailUrl = @"https://homelink.rjuhsd.us/GradebookDetails.aspx";
     alert = [[UIAlertView alloc] initWithTitle:@"Downloading Assigments"
                                        message:@"Please wait while your assigments are downloaded."
                                       delegate:nil
-                             cancelButtonTitle:nil
+                             cancelButtonTitle:@"Cancel"
                              otherButtonTitles:nil];
     [alert show];
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:detailUrl]];
