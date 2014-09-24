@@ -11,10 +11,6 @@
 #import "TFHpple.h"
 #import "OHSArticleViewController.h"
 
-@interface OHSNewsViewController ()
-
-@end
-
 @implementation OHSNewsViewController
 
 - (IBAction)unwindToArticleOverview:(UIStoryboardSegue *)segue
@@ -29,8 +25,8 @@
 - (void)downloadNewsArticles {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Downloading News"
                                        message:@"Please wait while the school news is downloaded."
-                                      delegate:nil
-                             cancelButtonTitle:nil
+                                      delegate:self
+                             cancelButtonTitle:@"Cancel"
                              otherButtonTitles:nil];
     [alert show];
     NSURL *newsUrl = [NSURL URLWithString:@"http://ohs.rjuhsd.us/site/default.aspx?PageID=1"];
@@ -59,7 +55,7 @@
     
     self.articles = newArticles;
     [self.tableView reloadData];
-    [alert dismissWithClickedButtonIndex:0 animated:YES];
+    //[alert dismissWithClickedButtonIndex:0 animated:YES];
 }
 
 - (void)viewDidLoad
