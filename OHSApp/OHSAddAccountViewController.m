@@ -14,8 +14,6 @@
 
 @implementation OHSAddAccountViewController
 
-OHSAccount *account;
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -24,24 +22,48 @@ OHSAccount *account;
     [self.passwordField setDelegate:self];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    [self processAccount];
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    NSLog(@"HEY THERE");
+    if([[sender title] isEqualToString:@"Save"]) {
+        return [self processAccount];
+    } else {
+        return YES;
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if (textField == self.emailField) {
         [self.passwordField becomeFirstResponder];
     } else if(textField == self.passwordField) {
+        NSLog(@"Keyboard process triggered");
         [self processAccount];
     }
     return YES;
 }
 
--(void)processAccount {
-    account = [[OHSAccount alloc] init];
-    account.email = self.emailField.text;
-    account.password = self.passwordField.text;
-    [account save];
+-(BOOL)processAccount {
+    NSString *email = self.emailField.text;
+    NSString *password = self.emailField.text;
+    
+    if([self NSStringIsValidEmail:email] && password.length) {
+        OHSAccount *account = [[OHSAccount alloc] init];
+        account.email = email;
+        account.password = password;
+        [account save];
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
+-(BOOL) NSStringIsValidEmail:(NSString *)checkString
+{
+    BOOL stricterFilter = NO; // Discussion http://blog.logichigh.com/2010/09/02/validating-an-e-mail-address/
+    NSString *stricterFilterString = @"[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}";
+    NSString *laxString = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*";
+    NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:checkString];
 }
 
 @end

@@ -18,7 +18,7 @@
 
 BOOL isEditing = NO;
 
-- (IBAction)unwindToArticleOverview:(UIStoryboardSegue *)segue
+- (IBAction)unwindToAccountsView:(UIStoryboardSegue *)segue
 {
     [self reloadTable];
 }
