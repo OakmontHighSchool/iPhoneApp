@@ -64,7 +64,7 @@
     
     self.articles = newArticles;
     [self.tableView reloadData];
-    //[alert dismissWithClickedButtonIndex:0 animated:YES];
+    [alert dismissWithClickedButtonIndex:0 animated:YES];
 }
 
 - (void)viewDidLoad
