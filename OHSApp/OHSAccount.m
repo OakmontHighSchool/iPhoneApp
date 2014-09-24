@@ -35,4 +35,9 @@
     [manager saveNewAccount:self];
 }
 
+-(void)update {
+    OHSAccountManager *manager = [[OHSAccountManager alloc] init];
+    [manager saveChangesFor:self index:self.index];
+}
+
 @end

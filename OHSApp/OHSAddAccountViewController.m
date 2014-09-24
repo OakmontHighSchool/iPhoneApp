@@ -8,16 +8,23 @@
 
 #import "OHSAddAccountViewController.h"
 
-@interface OHSAddAccountViewController ()
-
-@end
-
 @implementation OHSAddAccountViewController
+
+BOOL newAccount = NO;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    if(self.account == nil) {
+        newAccount = YES;
+        self.account = [[OHSAccount alloc] init];
+    }
+    
+    [self.nameField setText:self.account.name];
+    [self.emailField setText:self.account.email];
+    [self.passwordField setText:self.account.password];
+    
     [self.emailField setDelegate:self];
     [self.passwordField setDelegate:self];
 }
@@ -47,11 +54,14 @@
     NSString *name = self.nameField.text;
     
     if([self NSStringIsValidEmail:email] && password.length) {
-        OHSAccount *account = [[OHSAccount alloc] init];
-        account.email = email;
-        account.password = password;
-        account.name = name;
-        [account save];
+        self.account.email = email;
+        self.account.password = password;
+        self.account.name = name;
+        if(newAccount) {
+            [self.account save];
+        } else {
+            [self.account update];
+        }
         return YES;
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Credentials"

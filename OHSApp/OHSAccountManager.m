@@ -40,6 +40,7 @@ NSString *filePath;
         account.email = [dict objectForKey:@"email"];
         account.password = [dict objectForKey:@"password"];
         account.name = [dict objectForKey:@"name"];
+        account.index = i;
         if(account.name == nil) {
             account.name = @"";
         }
@@ -47,8 +48,9 @@ NSString *filePath;
     }
 }
 
--(void)saveChangesFor:(OHSAccount *)account {
-    
+-(void)saveChangesFor:(OHSAccount *)account index:(int)index {
+    [_accounts replaceObjectAtIndex:index withObject:account];
+    [self saveFile];
 }
 
 -(void)removeObjectAtIndex:(NSInteger)index {

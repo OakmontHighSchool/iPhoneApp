@@ -10,7 +10,7 @@
 #import "OHSAccount.h"
 
 @interface OHSAccountManager : NSObject
--(void)saveChangesFor: (OHSAccount*)account;
+-(void)saveChangesFor: (OHSAccount*)account index:(int)index;
 -(void)saveNewAccount: (OHSAccount*)account;
 -(void)reload;
 -(void)removeObjectAtIndex: (NSInteger)index;

@@ -85,11 +85,16 @@ BOOL isEditing = NO;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.identifier isEqualToString:@"viewClasses"]){
-        //Get row id
-        NSInteger rowId = [self.tableView indexPathForSelectedRow].row;
+    //Get row id
+    NSInteger rowId = [self.tableView indexPathForCell:sender].row;
+    if([segue.identifier isEqualToString:@"viewClasses"]) {
         //Get new view controller...
         OHSClassesViewController *controller = (OHSClassesViewController *)segue.destinationViewController;
+        controller.account = [self.accountManager.accounts objectAtIndex:rowId];
+    } else if([segue.identifier isEqualToString:@"editClass"]) {
+        //Get new view controller...
+        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
+        OHSAddAccountViewController *controller = (OHSAddAccountViewController *)navController.topViewController;
         controller.account = [self.accountManager.accounts objectAtIndex:rowId];
     }
 }
