@@ -14,6 +14,9 @@
 - (void)viewDidLoad {
     self.accountManager = [[OHSAccountManager alloc] init];
     [self.tableView reloadData];
+    if([self.accountManager.accounts count] <= 0) {
+        [self performSegueWithIdentifier:@"AddAccount" sender:nil];
+    }
 }
 
 BOOL isEditing = NO;
