@@ -26,8 +26,13 @@
     [self downloadNewsArticles];
 }
 
-- (void)downloadNewsArticles
-{
+- (void)downloadNewsArticles {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Downloading News"
+                                       message:@"Please wait while the school news is downloaded."
+                                      delegate:nil
+                             cancelButtonTitle:nil
+                             otherButtonTitles:nil];
+    [alert show];
     NSURL *newsUrl = [NSURL URLWithString:@"http://ohs.rjuhsd.us/site/default.aspx?PageID=1"];
     NSData *newsHtmlData = [NSData dataWithContentsOfURL:newsUrl];
     
@@ -54,6 +59,7 @@
     
     self.articles = newArticles;
     [self.tableView reloadData];
+    [alert dismissWithClickedButtonIndex:0 animated:YES];
 }
 
 - (void)viewDidLoad

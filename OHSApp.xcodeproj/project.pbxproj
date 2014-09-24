@@ -214,10 +214,10 @@
 		A251E2121997BDC700F7946A /* News */ = {
 			isa = PBXGroup;
 			children = (
-				A27895C11996D20A000390DC /* OHSArticleViewController.h */,
-				A27895C21996D20A000390DC /* OHSArticleViewController.m */,
 				A2140710197C72B2004664B9 /* OHSNewsViewController.h */,
 				A2140711197C72B2004664B9 /* OHSNewsViewController.m */,
+				A27895C11996D20A000390DC /* OHSArticleViewController.h */,
+				A27895C21996D20A000390DC /* OHSArticleViewController.m */,
 				A2140713197C7367004664B9 /* OHSNewsArticle.h */,
 				A2140714197C7367004664B9 /* OHSNewsArticle.m */,
 			);

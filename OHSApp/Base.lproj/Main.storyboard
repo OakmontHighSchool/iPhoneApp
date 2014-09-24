@@ -452,15 +452,15 @@
         <scene sceneID="Vex-rW-GRa">
             <objects>
                 <tabBarController id="8YX-ce-x5E" sceneMemberID="viewController">
-                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="JQR-rB-NYL">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="0VQ-w8-4gP" kind="relationship" relationship="viewControllers" id="WBn-Hj-4yn"/>
                         <segue destination="NH1-Cf-wPh" kind="relationship" relationship="viewControllers" id="mHo-KG-MUu"/>
+                        <segue destination="0VQ-w8-4gP" kind="relationship" relationship="viewControllers" id="WBn-Hj-4yn"/>
                         <segue destination="Mtw-yP-fbK" kind="relationship" relationship="viewControllers" id="o1L-cp-g12"/>
                         <segue destination="uIy-9t-00r" kind="relationship" relationship="viewControllers" id="psU-3S-50s"/>
                         <segue destination="dUE-ql-C5E" kind="relationship" relationship="viewControllers" id="DK5-r5-YuW"/>
