@@ -27,7 +27,7 @@ UIAlertView *alert;
     alert = [[UIAlertView alloc] initWithTitle:@"Downloading Classes"
                                                     message:@"Please wait while your classes are downloaded."
                                                    delegate:nil
-                                          cancelButtonTitle:nil
+                                          cancelButtonTitle:@"Cancel"
                                           otherButtonTitles:nil];
     [alert show];
     [NSData dataWithContentsOfURL:[NSURL URLWithString:logoutURLString]]; //Logout (if necessary) to allow login
@@ -51,7 +51,13 @@ UIAlertView *alert;
 }
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    NSLog(@"%@" , error);
+    [alert dismissWithClickedButtonIndex:0 animated:YES];
+    alert = [[UIAlertView alloc] initWithTitle:@"No Internet"
+                                       message:[[[error userInfo] objectForKey:NSUnderlyingErrorKey] localizedDescription]
+                                      delegate:nil
+                             cancelButtonTitle:@"Ok"
+                             otherButtonTitles:nil];
+    [alert show];
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection {

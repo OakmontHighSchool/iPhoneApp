@@ -25,7 +25,7 @@
 - (void)downloadNewsArticles {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Downloading News"
                                        message:@"Please wait while the school news is downloaded."
-                                      delegate:self
+                                      delegate:nil
                              cancelButtonTitle:@"Cancel"
                              otherButtonTitles:nil];
     [alert show];
@@ -46,6 +46,15 @@
     NSArray *linkNodes = [newsParser searchWithXPathQuery:linkXpathQueryString];
     
     NSMutableArray *newArticles = [[NSMutableArray alloc] initWithCapacity:10];
+    if(titleNodes.count <= 0) {
+        [alert dismissWithClickedButtonIndex:0 animated:YES];
+        alert = [[UIAlertView alloc] initWithTitle:@"No Internet"
+                                           message:@"Please connect your device to the internet."
+                                          delegate:nil
+                                 cancelButtonTitle:@"Ok"
+                                 otherButtonTitles:nil];
+        [alert show];
+    }
     for(int i=0;i<[titleNodes count];i++) {
         OHSNewsArticle *article = [[OHSNewsArticle alloc] init];
         article.title = [[titleNodes objectAtIndex:i] content];

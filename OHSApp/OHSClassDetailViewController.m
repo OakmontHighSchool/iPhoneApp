@@ -26,6 +26,12 @@ NSString *detailUrl = @"https://homelink.rjuhsd.us/GradebookDetails.aspx";
 }
 
 - (void)downloadClasses {
+    alert = [[UIAlertView alloc] initWithTitle:@"Downloading Assigments"
+                                       message:@"Please wait while your assigments are downloaded."
+                                      delegate:nil
+                             cancelButtonTitle:nil
+                             otherButtonTitles:nil];
+    [alert show];
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:detailUrl]];
     [self loadIdsWithString:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
 }
@@ -34,18 +40,11 @@ NSMutableData *receivedData;
 UIAlertView *alert;
 
 -(void)loadIdsWithString: (NSString *)htmlStr {
-    alert = [[UIAlertView alloc] initWithTitle:@"Downloading Assigments"
-                                       message:@"Please wait while your assigments are downloaded."
-                                      delegate:nil
-                             cancelButtonTitle:nil
-                             otherButtonTitles:nil];
-    [alert show];
-    
     TFHpple *mainParser = [TFHpple hppleWithHTMLData:[htmlStr dataUsingEncoding:NSUTF8StringEncoding]];
     
     assignments = [[NSMutableArray alloc] init];
     
-    NSString *viewState = [[[mainParser searchWithXPathQuery:@"//input[@id='__VIEWSTATE']/@value"] objectAtIndex:0] text];
+    //NSString *viewState = [[[mainParser searchWithXPathQuery:@"//input[@id='__VIEWSTATE']/@value"] objectAtIndex:0] text];
     //NSLog(@"%@",viewState);
     //NSString *masterScript = [[[mainParser searchWithXPathQuery:@"//input[@id='ctl00_TheMasterScriptManager_HiddenField']/@value"] objectAtIndex:0] text];
     
@@ -108,7 +107,13 @@ UIAlertView *alert;
 }
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    NSLog(@"%@" , error);
+    [alert dismissWithClickedButtonIndex:0 animated:YES];
+    alert = [[UIAlertView alloc] initWithTitle:@"No Internet"
+                                       message:[[[error userInfo] objectForKey:NSUnderlyingErrorKey] localizedDescription]
+                                      delegate:nil
+                             cancelButtonTitle:@"Ok"
+                             otherButtonTitles:nil];
+    [alert show];
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection {
