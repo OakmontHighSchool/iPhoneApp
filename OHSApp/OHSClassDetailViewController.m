@@ -31,8 +31,16 @@ NSString *detailUrl = @"https://homelink.rjuhsd.us/GradebookDetails.aspx";
 }
 
 NSMutableData *receivedData;
+UIAlertView *alert;
 
 -(void)loadIdsWithString: (NSString *)htmlStr {
+    alert = [[UIAlertView alloc] initWithTitle:@"Downloading Assigments"
+                                       message:@"Please wait while your assigments are downloaded."
+                                      delegate:nil
+                             cancelButtonTitle:nil
+                             otherButtonTitles:nil];
+    [alert show];
+    
     TFHpple *mainParser = [TFHpple hppleWithHTMLData:[htmlStr dataUsingEncoding:NSUTF8StringEncoding]];
     
     assignments = [[NSMutableArray alloc] init];
@@ -138,6 +146,7 @@ NSMutableData *receivedData;
     }
     
     [self.tableView reloadData];
+    [alert dismissWithClickedButtonIndex:0 animated:YES];
 }
 
 - (NSString *)textOfTdAt:(NSInteger)i parser:(TFHpple *)hppleParser base:(NSString *)trIdBase {
@@ -182,5 +191,10 @@ NSMutableData *receivedData;
         controller.assignment = assignment;
     }
 }
+
+- (IBAction)refreshButtonPress:(id)sender {
+    [self downloadClasses];
+}
+
 
 @end

@@ -543,7 +543,13 @@
                             <outlet property="delegate" destination="gYg-Rm-eN9" id="cn8-vi-K58"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Assignments" id="xNe-8J-Kcw"/>
+                    <navigationItem key="navigationItem" title="Assignments" id="xNe-8J-Kcw">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="refresh" id="4Dz-Q1-DU7">
+                            <connections>
+                                <action selector="refreshButtonPress:" destination="gYg-Rm-eN9" id="axm-8b-GcD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qam-u7-D9r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
