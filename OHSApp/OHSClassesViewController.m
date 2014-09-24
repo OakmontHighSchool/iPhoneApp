@@ -11,12 +11,14 @@
 @implementation OHSClassesViewController
 
 NSString *loginURLString = @"https://homelink.rjuhsd.us/LoginParent.aspx";
+NSString *logoutURLString = @"https://homelink.rjuhsd.us/Logout.aspx";
 NSString *gradesURLString = @"https://homelink.rjuhsd.us/GradebookDetails.aspx";
 
 NSMutableArray *classes;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [NSData dataWithContentsOfURL:[NSURL URLWithString:logoutURLString]]; //Logout (if necessary) to allow login
     [self downloadClasses];
 }
 
