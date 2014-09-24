@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "OHSAccount.h"
 
-@interface OHSAddAccountViewController : UIViewController <UITextFieldDelegate>
+@interface OHSEditAccountViewController : UIViewController <UITextFieldDelegate>
 @property (strong, nonatomic) OHSAccount *account;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;

@@ -13,7 +13,7 @@
 		A212F52419C54FE300065CDD /* OHSAssignment.m in Sources */ = {isa = PBXBuildFile; fileRef = A212F52319C54FE300065CDD /* OHSAssignment.m */; };
 		A2140712197C72B2004664B9 /* OHSNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2140711197C72B2004664B9 /* OHSNewsViewController.m */; };
 		A2140715197C7367004664B9 /* OHSNewsArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = A2140714197C7367004664B9 /* OHSNewsArticle.m */; };
-		A22061B9199C438F008F4A94 /* OHSAddAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A22061B8199C438F008F4A94 /* OHSAddAccountViewController.m */; };
+		A22061B9199C438F008F4A94 /* OHSEditAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A22061B8199C438F008F4A94 /* OHSEditAccountViewController.m */; };
 		A22061BC199C6474008F4A94 /* OHSAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A22061BB199C6474008F4A94 /* OHSAccountManager.m */; };
 		A23F4FFD19789F000053CEB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23F4FFC19789F000053CEB0 /* Foundation.framework */; };
 		A23F4FFF19789F000053CEB0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23F4FFE19789F000053CEB0 /* CoreGraphics.framework */; };
@@ -64,8 +64,8 @@
 		A2140711197C72B2004664B9 /* OHSNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHSNewsViewController.m; sourceTree = "<group>"; };
 		A2140713197C7367004664B9 /* OHSNewsArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHSNewsArticle.h; sourceTree = "<group>"; };
 		A2140714197C7367004664B9 /* OHSNewsArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHSNewsArticle.m; sourceTree = "<group>"; };
-		A22061B7199C438F008F4A94 /* OHSAddAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHSAddAccountViewController.h; sourceTree = "<group>"; };
-		A22061B8199C438F008F4A94 /* OHSAddAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHSAddAccountViewController.m; sourceTree = "<group>"; };
+		A22061B7199C438F008F4A94 /* OHSEditAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHSEditAccountViewController.h; sourceTree = "<group>"; };
+		A22061B8199C438F008F4A94 /* OHSEditAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHSEditAccountViewController.m; sourceTree = "<group>"; };
 		A22061BA199C6474008F4A94 /* OHSAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHSAccountManager.h; sourceTree = "<group>"; };
 		A22061BB199C6474008F4A94 /* OHSAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHSAccountManager.m; sourceTree = "<group>"; };
 		A23F4FF919789F000053CEB0 /* OHSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OHSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -251,6 +251,21 @@
 			name = Map;
 			sourceTree = "<group>";
 		};
+		A265E60A19D32BEF00FC9850 /* GradesObjects */ = {
+			isa = PBXGroup;
+			children = (
+				A22061BA199C6474008F4A94 /* OHSAccountManager.h */,
+				A22061BB199C6474008F4A94 /* OHSAccountManager.m */,
+				A2BA8EE719999F0F00B9646D /* OHSAccount.h */,
+				A2BA8EE819999F0F00B9646D /* OHSAccount.m */,
+				A212F51C19C3DF0000065CDD /* OHSClass.h */,
+				A212F51D19C3DF0000065CDD /* OHSClass.m */,
+				A212F52219C54FE300065CDD /* OHSAssignment.h */,
+				A212F52319C54FE300065CDD /* OHSAssignment.m */,
+			);
+			name = GradesObjects;
+			sourceTree = "<group>";
+		};
 		A27895CD19970ADE000390DC /* Hpple */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,22 +292,15 @@
 			children = (
 				A2BA8EE3199991F800B9646D /* OHSAccountsViewController.h */,
 				A2BA8EE4199991F800B9646D /* OHSAccountsViewController.m */,
-				A2BA8EE719999F0F00B9646D /* OHSAccount.h */,
-				A2BA8EE819999F0F00B9646D /* OHSAccount.m */,
-				A22061B7199C438F008F4A94 /* OHSAddAccountViewController.h */,
-				A22061B8199C438F008F4A94 /* OHSAddAccountViewController.m */,
-				A22061BA199C6474008F4A94 /* OHSAccountManager.h */,
-				A22061BB199C6474008F4A94 /* OHSAccountManager.m */,
+				A22061B7199C438F008F4A94 /* OHSEditAccountViewController.h */,
+				A22061B8199C438F008F4A94 /* OHSEditAccountViewController.m */,
 				A212F51919C3DEE300065CDD /* OHSClassesViewController.h */,
 				A212F51A19C3DEE300065CDD /* OHSClassesViewController.m */,
-				A212F51C19C3DF0000065CDD /* OHSClass.h */,
-				A212F51D19C3DF0000065CDD /* OHSClass.m */,
-				A212F52219C54FE300065CDD /* OHSAssignment.h */,
-				A212F52319C54FE300065CDD /* OHSAssignment.m */,
 				A212F51F19C54C7E00065CDD /* OHSClassDetailViewController.h */,
 				A212F52019C54C7E00065CDD /* OHSClassDetailViewController.m */,
 				A2F3C57419C6597A008BC4B5 /* OHSAssignmentViewController.h */,
 				A2F3C57519C6597A008BC4B5 /* OHSAssignmentViewController.m */,
+				A265E60A19D32BEF00FC9850 /* GradesObjects */,
 			);
 			name = Grades;
 			sourceTree = "<group>";
@@ -408,7 +416,7 @@
 				A2BA8EE5199991F800B9646D /* OHSAccountsViewController.m in Sources */,
 				A251E21A1997C35000F7946A /* OHSMapViewController.m in Sources */,
 				A251E2111997BB9200F7946A /* OHSWebsiteViewController.m in Sources */,
-				A22061B9199C438F008F4A94 /* OHSAddAccountViewController.m in Sources */,
+				A22061B9199C438F008F4A94 /* OHSEditAccountViewController.m in Sources */,
 				A27895CB19970ACF000390DC /* TFHpple.m in Sources */,
 				A212F51B19C3DEE300065CDD /* OHSClassesViewController.m in Sources */,
 				A2140715197C7367004664B9 /* OHSNewsArticle.m in Sources */,

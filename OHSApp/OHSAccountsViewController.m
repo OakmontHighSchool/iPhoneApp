@@ -94,7 +94,7 @@ BOOL isEditing = NO;
     } else if([segue.identifier isEqualToString:@"editClass"]) {
         //Get new view controller...
         UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
-        OHSAddAccountViewController *controller = (OHSAddAccountViewController *)navController.topViewController;
+        OHSEditAccountViewController *controller = (OHSEditAccountViewController *)navController.topViewController;
         controller.account = [self.accountManager.accounts objectAtIndex:rowId];
     }
 }

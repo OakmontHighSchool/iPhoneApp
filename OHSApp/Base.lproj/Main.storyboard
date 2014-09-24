@@ -280,10 +280,10 @@
             </objects>
             <point key="canvasLocation" x="1602" y="1193"/>
         </scene>
-        <!--Add Account View Controller - Add Account-->
+        <!--Edit Account View Controller - Add Account-->
         <scene sceneID="EOL-wj-cLW">
             <objects>
-                <viewController id="gFT-rR-Upq" customClass="OHSAddAccountViewController" sceneMemberID="viewController">
+                <viewController id="gFT-rR-Upq" customClass="OHSEditAccountViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RZo-Qd-djk"/>
                         <viewControllerLayoutGuide type="bottom" id="eqs-Vr-Zcv"/>
@@ -694,10 +694,10 @@
             </objects>
             <point key="canvasLocation" x="2498" y="505"/>
         </scene>
-        <!--Add Account View Controller - Edit Account-->
+        <!--Edit Account View Controller - Edit Account-->
         <scene sceneID="wMh-OG-LTq">
             <objects>
-                <viewController id="YLv-Dy-uJn" customClass="OHSAddAccountViewController" sceneMemberID="viewController">
+                <viewController id="YLv-Dy-uJn" customClass="OHSEditAccountViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ltn-Yi-Xtd"/>
                         <viewControllerLayoutGuide type="bottom" id="YMm-5Z-9jZ"/>

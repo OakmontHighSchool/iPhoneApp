@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Oakmont High School. All rights reserved.
 //
 
-#import "OHSAddAccountViewController.h"
+#import "OHSEditAccountViewController.h"
 
-@implementation OHSAddAccountViewController
+@implementation OHSEditAccountViewController
 
 BOOL newAccount = NO;
 

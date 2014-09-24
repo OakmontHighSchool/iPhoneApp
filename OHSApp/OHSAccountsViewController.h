@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "OHSAccountManager.h"
 #import "OHSClassesViewController.h"
-#import "OHSAddAccountViewController.h"
+#import "OHSEditAccountViewController.h"
 
 @interface OHSAccountsViewController : UITableViewController
 
