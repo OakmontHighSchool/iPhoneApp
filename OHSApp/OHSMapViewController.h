@@ -10,9 +10,9 @@
 
 @interface OHSMapViewController : UIViewController <UIScrollViewDelegate, UIActionSheetDelegate>
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 
 @end

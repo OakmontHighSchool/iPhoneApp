@@ -237,6 +237,12 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="StO-gm-bhj">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="school_map" translatesAutoresizingMaskIntoConstraints="NO" id="oaP-yV-uRE">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                </subviews>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -249,7 +255,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <size key="freeformSize" width="320" height="568"/>
                     <connections>
+                        <outlet property="imageView" destination="oaP-yV-uRE" id="PN6-kp-gIN"/>
                         <outlet property="scrollView" destination="StO-gm-bhj" id="i0F-kW-f3k"/>
                     </connections>
                 </viewController>
@@ -361,7 +369,6 @@
         <!--Navigation Controller-->
         <scene sceneID="EPk-py-74I">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8yv-0s-0uZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="QRC-ZR-GLO" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Eql-Op-e3t"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="r1v-6h-WbY">
@@ -371,6 +378,7 @@
                         <segue destination="YLv-Dy-uJn" kind="relationship" relationship="rootViewController" id="Sfs-aM-8QD"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8yv-0s-0uZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1602" y="1869"/>
         </scene>
@@ -452,7 +460,7 @@
         <scene sceneID="Vex-rW-GRa">
             <objects>
                 <tabBarController id="8YX-ce-x5E" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="JQR-rB-NYL">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -749,6 +757,7 @@
         <image name="bar_map" width="32" height="32"/>
         <image name="bar_news" width="32" height="32"/>
         <image name="bar_website" width="32" height="32"/>
+        <image name="school_map" width="1000" height="1279"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
