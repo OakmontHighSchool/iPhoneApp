@@ -300,7 +300,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="0yh-re-lHA">
                             <connections>
-                                <segue destination="9tS-lh-91x" kind="unwind" unwindAction="unwindToAccountsView:" id="L7H-Gt-SKI"/>
+                                <segue destination="9tS-lh-91x" kind="unwind" identifier="AccountSave" unwindAction="unwindToAccountsView:" id="L7H-Gt-SKI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

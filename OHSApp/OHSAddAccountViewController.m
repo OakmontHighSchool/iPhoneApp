@@ -36,7 +36,9 @@
         [self.passwordField becomeFirstResponder];
     } else if(textField == self.passwordField) {
         NSLog(@"Keyboard process triggered");
-        [self processAccount];
+        if([self processAccount]) {
+            [self performSegueWithIdentifier:@"AccountSave" sender:textField];
+        }
     }
     return YES;
 }
