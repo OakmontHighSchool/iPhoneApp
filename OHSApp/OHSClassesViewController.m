@@ -18,11 +18,20 @@ NSMutableArray *classes;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [NSData dataWithContentsOfURL:[NSURL URLWithString:logoutURLString]]; //Logout (if necessary) to allow login
     [self downloadClasses];
 }
 
+UIAlertView *alert;
+
 - (void)downloadClasses {
+    alert = [[UIAlertView alloc] initWithTitle:@"Downloading Classes"
+                                                    message:@"Please wait while your classes are downloaded."
+                                                   delegate:nil
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:nil];
+    [alert show];
+    [NSData dataWithContentsOfURL:[NSURL URLWithString:logoutURLString]]; //Logout (if necessary) to allow login
+    
     NSURL *loginUrl = [NSURL URLWithString:loginURLString];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:loginUrl];
@@ -86,6 +95,7 @@ NSMutableArray *classes;
     }
     
     [self.tableView reloadData];
+    [alert dismissWithClickedButtonIndex:0 animated:YES];
 }
 
 - (NSString *)textOfTdAt:(NSInteger)i parser:(TFHpple *)hppleParser base:(NSString *)trIdBase {
@@ -131,4 +141,7 @@ NSMutableArray *classes;
     }
 }
 
+- (IBAction)refreshButtonClick:(id)sender {
+    [self downloadClasses];
+}
 @end

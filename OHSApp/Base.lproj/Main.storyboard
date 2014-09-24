@@ -194,7 +194,13 @@
                             <outlet property="delegate" destination="c3U-LX-pO3" id="HNr-Tk-uIU"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Classes" id="Qu2-HP-Z16"/>
+                    <navigationItem key="navigationItem" title="Classes" id="Qu2-HP-Z16">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="refresh" id="Oma-e0-n1J">
+                            <connections>
+                                <action selector="refreshButtonClick:" destination="c3U-LX-pO3" id="Tso-4z-zUu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2tm-YE-q2z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
