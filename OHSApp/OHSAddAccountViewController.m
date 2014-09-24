@@ -54,6 +54,12 @@
         [account save];
         return YES;
     } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Credentials"
+                                                        message:@"Please check that you have entered a valid email and a password to continue"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
         return NO;
     }
 }
