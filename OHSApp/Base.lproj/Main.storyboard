@@ -103,10 +103,10 @@
             </objects>
             <point key="canvasLocation" x="653" y="504"/>
         </scene>
-        <!--Login View Controller - Accounts-->
+        <!--Accounts View Controller - Accounts-->
         <scene sceneID="30p-bd-2vN">
             <objects>
-                <tableViewController id="F4o-zo-JnF" customClass="OHSLoginViewController" sceneMemberID="viewController">
+                <tableViewController id="F4o-zo-JnF" customClass="OHSAccountsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ovA-1w-3Kg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

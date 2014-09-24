@@ -10,7 +10,7 @@
 #import "OHSAccountManager.h"
 #import "OHSClassesViewController.h"
 
-@interface OHSLoginViewController : UITableViewController
+@interface OHSAccountsViewController : UITableViewController
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
 

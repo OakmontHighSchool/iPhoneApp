@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Oakmont High School. All rights reserved.
 //
 
-#import "OHSLoginViewController.h"
+#import "OHSAccountsViewController.h"
 #import "OHSAccount.h"
 
-@implementation OHSLoginViewController
+@implementation OHSAccountsViewController
 
 - (void)viewDidLoad {
     self.accountManager = [[OHSAccountManager alloc] init];
