@@ -43,7 +43,7 @@
 
 -(BOOL)processAccount {
     NSString *email = self.emailField.text;
-    NSString *password = self.emailField.text;
+    NSString *password = self.passwordField.text;
     NSString *name = self.nameField.text;
     
     if([self NSStringIsValidEmail:email] && password.length) {

@@ -71,12 +71,14 @@ NSMutableArray *classes;
             class.lastUpdate = [self textOfTdAt:10 parser:mainParser base:trIdBase];
             [classes addObject:class];
         } else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Credentials"
-                                                            message:@"Either your email and password are wrong or Aeries is unavailable."
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
+            if(rowCount == 1) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Credentials"
+                    message:@"Either your email and password are wrong or Aeries is unavailable."
+                    delegate:nil
+                    cancelButtonTitle:@"OK"
+                    otherButtonTitles:nil];
+                [alert show];
+            }
             break;
         }
     }
