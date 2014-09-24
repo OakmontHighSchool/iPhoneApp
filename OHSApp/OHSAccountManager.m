@@ -39,6 +39,10 @@ NSString *filePath;
         OHSAccount *account = [[OHSAccount alloc] init];
         account.email = [dict objectForKey:@"email"];
         account.password = [dict objectForKey:@"password"];
+        account.name = [dict objectForKey:@"name"];
+        if(account.name == nil) {
+            account.name = @"";
+        }
         [_accounts addObject:account];
     }
 }
@@ -61,8 +65,8 @@ NSString *filePath;
     NSMutableArray *jsonAccounts = [[NSMutableArray alloc] init];
     for (int i=0;i<[_accounts count];i++) {
         OHSAccount *account = [_accounts objectAtIndex:i];
-        NSArray *objects=[[NSArray alloc]initWithObjects:account.email,account.password,nil];
-        NSArray *keys=[[NSArray alloc]initWithObjects:@"email",@"password",nil];
+        NSArray *objects=[[NSArray alloc]initWithObjects:account.email,account.password,account.name,nil];
+        NSArray *keys=[[NSArray alloc]initWithObjects:@"email",@"password",@"name",nil];
         NSDictionary *dict=[NSDictionary dictionaryWithObjects:objects forKeys:keys];
         [jsonAccounts addObject:dict];
     }

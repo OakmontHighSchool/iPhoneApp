@@ -23,7 +23,6 @@
 }
 
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    NSLog(@"HEY THERE");
     if([[sender title] isEqualToString:@"Save"]) {
         return [self processAccount];
     } else {
@@ -35,7 +34,6 @@
     if (textField == self.emailField) {
         [self.passwordField becomeFirstResponder];
     } else if(textField == self.passwordField) {
-        NSLog(@"Keyboard process triggered");
         if([self processAccount]) {
             [self performSegueWithIdentifier:@"AccountSave" sender:textField];
         }
@@ -46,11 +44,13 @@
 -(BOOL)processAccount {
     NSString *email = self.emailField.text;
     NSString *password = self.emailField.text;
+    NSString *name = self.nameField.text;
     
     if([self NSStringIsValidEmail:email] && password.length) {
         OHSAccount *account = [[OHSAccount alloc] init];
         account.email = email;
         account.password = password;
+        account.name = name;
         [account save];
         return YES;
     } else {

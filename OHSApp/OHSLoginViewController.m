@@ -64,7 +64,11 @@ BOOL isEditing = NO;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AccountsItem" forIndexPath:indexPath];
     
     OHSAccount *account = (self.accountManager.accounts)[indexPath.row];
-    cell.textLabel.text = account.email;
+    if(account.name.length) {
+        cell.textLabel.text = account.name;
+    } else {
+        cell.textLabel.text = account.email;
+    }
     
     return cell;
 }
