@@ -40,7 +40,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="News" id="3u7-mq-EAy">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="refresh" id="Ifa-qp-973">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Ifa-qp-973">
                             <connections>
                                 <action selector="reloadArticles:" destination="2ke-ei-rkL" id="Tta-n6-J8p"/>
                             </connections>
@@ -195,7 +195,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Classes" id="Qu2-HP-Z16">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="refresh" id="Oma-e0-n1J">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Oma-e0-n1J">
                             <connections>
                                 <action selector="refreshButtonClick:" destination="c3U-LX-pO3" id="Tso-4z-zUu"/>
                             </connections>
@@ -314,7 +314,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Account" id="5gg-af-9k3">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="yGw-3X-I2P">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="yGw-3X-I2P">
                             <connections>
                                 <segue destination="9tS-lh-91x" kind="unwind" unwindAction="unwindToAccountsView:" id="KUe-Yj-Vop"/>
                             </connections>
@@ -552,7 +552,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Assignments" id="xNe-8J-Kcw">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="refresh" id="4Dz-Q1-DU7">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="4Dz-Q1-DU7">
                             <connections>
                                 <action selector="refreshButtonPress:" destination="gYg-Rm-eN9" id="axm-8b-GcD"/>
                             </connections>
@@ -728,7 +728,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Account" id="ZOB-ex-k5Q">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="WJp-S4-S9V">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="WJp-S4-S9V">
                             <connections>
                                 <segue destination="5va-AA-Zh7" kind="unwind" unwindAction="unwindToAccountsView:" id="cEz-t3-GLi"/>
                             </connections>
