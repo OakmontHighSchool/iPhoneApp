@@ -12,7 +12,6 @@
 
 NSString *loginURLString = @"https://homelink.rjuhsd.us/LoginParent.aspx";
 NSString *logoutURLString = @"https://homelink.rjuhsd.us/Logout.aspx";
-NSString *gradesURLString = @"https://homelink.rjuhsd.us/GradebookDetails.aspx";
 
 NSMutableArray *classes;
 
@@ -61,8 +60,7 @@ UIAlertView *alert;
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    
-    //initialize convert the received data to string with UTF8 encoding
+    //convert the received data to string with UTF8 encoding
     NSString *htmlSTR = [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding];
     [self loadTableWithString: htmlSTR];
 }
