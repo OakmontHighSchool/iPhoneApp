@@ -9,10 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "OHSClass.h"
 #import "OHSAssignment.h"
-#import "TFHpple.h"
 #import "OHSAssignmentViewController.h"
 
-@interface OHSClassDetailViewController : UITableViewController<NSURLConnectionDelegate,UIWebViewDelegate>
+@interface OHSClassDetailViewController : UITableViewController<UIWebViewDelegate>
 
 @property (nonatomic, strong) OHSClass *schoolClass;
 

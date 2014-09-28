@@ -23,6 +23,7 @@ NSString *detailUrl = @"https://homelink.rjuhsd.us/GradebookDetails.aspx";
 }
 
 - (void)downloadClasses {
+    assignments = [[NSMutableArray alloc] init];
     alert = [[UIAlertView alloc] initWithTitle:@"Downloading Assigments"
                                        message:@"Please wait while your assigments are downloaded."
                                       delegate:nil
@@ -44,6 +45,7 @@ NSString *detailUrl = @"https://homelink.rjuhsd.us/GradebookDetails.aspx";
     [self performSelector:@selector(loadAssignments) withObject:nil afterDelay:1];
 }
 
+//Does this even work anymore?
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     [alert dismissWithClickedButtonIndex:0 animated:YES];
     alert = [[UIAlertView alloc] initWithTitle:@"No Internet"
@@ -55,7 +57,6 @@ NSString *detailUrl = @"https://homelink.rjuhsd.us/GradebookDetails.aspx";
 }
 
 -(void)loadAssignments {
-    assignments = [[NSMutableArray alloc] init];
     NSString *base = @"$('#ctl00_MainContent_subGBS_tblEverything table[style=\"border-collapse:collapse;border-style:none;\"] table')[0].children[0].children";
     NSInteger count = [[webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@.length",base]] integerValue];
     
@@ -82,16 +83,6 @@ NSString *detailUrl = @"https://homelink.rjuhsd.us/GradebookDetails.aspx";
     
     [self.tableView reloadData];
     [alert dismissWithClickedButtonIndex:0 animated:YES];
-}
-
-- (NSString *)textOfTdAt:(NSInteger)i parser:(TFHpple *)hppleParser base:(NSString *)trIdBase {
-    NSString *path = [NSString stringWithFormat:@"%@/td",trIdBase];
-    if(i == 0) {
-        path = [NSString stringWithFormat:@"%@/a",path];
-    } else {
-        path = [NSString stringWithFormat:@"%@[%ld]",path,(long)i];
-    }
-    return [[[hppleParser searchWithXPathQuery:path] objectAtIndex:0] text];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

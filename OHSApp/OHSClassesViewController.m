@@ -23,6 +23,7 @@ NSMutableArray *classes;
 UIAlertView *alert;
 
 - (void)downloadClasses {
+    classes = [[NSMutableArray alloc] init];
     alert = [[UIAlertView alloc] initWithTitle:@"Downloading Classes"
                                                     message:@"Please wait while your classes are downloaded."
                                                    delegate:nil
@@ -67,8 +68,6 @@ UIAlertView *alert;
 
 -(void)loadTableWithString: (NSString *)htmlStr {
     TFHpple *mainParser = [TFHpple hppleWithHTMLData:[htmlStr dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    classes = [[NSMutableArray alloc] init];
     
     int rowCount = 1;
     while(true) {
