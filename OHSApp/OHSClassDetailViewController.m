@@ -8,14 +8,11 @@
 
 #import "OHSClassDetailViewController.h"
 
-@interface OHSClassDetailViewController ()
-
-@end
-
 @implementation OHSClassDetailViewController
 
 NSMutableArray *assignments;
-NSURLConnection *connection;
+UIAlertView *alert;
+UIWebView *webView; //WebView for doing dirty things with
 
 NSString *detailUrl = @"https://homelink.rjuhsd.us/GradebookDetails.aspx";
 
@@ -32,78 +29,19 @@ NSString *detailUrl = @"https://homelink.rjuhsd.us/GradebookDetails.aspx";
                              cancelButtonTitle:@"Cancel"
                              otherButtonTitles:nil];
     [alert show];
-    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:detailUrl]];
-    [self loadIdsWithString:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
+    webView = [[UIWebView alloc] init];
+    [webView setDelegate:self];
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:detailUrl]]];
 }
 
-NSMutableData *receivedData;
-UIAlertView *alert;
-
--(void)loadIdsWithString: (NSString *)htmlStr {
-    TFHpple *mainParser = [TFHpple hppleWithHTMLData:[htmlStr dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    assignments = [[NSMutableArray alloc] init];
-    
-    //NSString *viewState = [[[mainParser searchWithXPathQuery:@"//input[@id='__VIEWSTATE']/@value"] objectAtIndex:0] text];
-    //NSLog(@"%@",viewState);
-    //NSString *masterScript = [[[mainParser searchWithXPathQuery:@"//input[@id='ctl00_TheMasterScriptManager_HiddenField']/@value"] objectAtIndex:0] text];
-    
-    NSString *selBase = @"//select[@id='ctl00_MainContent_subGBS_dlGN']/option";
-    NSArray *classNames = [mainParser searchWithXPathQuery:selBase];
-    
-    BOOL skipRequest = NO;
-    
-    for(int i=0;i<[classNames count];i++) {
-        NSArray *classIds = [mainParser searchWithXPathQuery:[NSString stringWithFormat:@"%@[%d]/@value",selBase,i+1]];
-        NSString *stupidTitle = [[classNames objectAtIndex:i]text];
-        NSString *stupidId = [[classIds objectAtIndex:0]text];
-        if(![stupidTitle hasPrefix:@"<<"]) {
-            if (!([stupidTitle rangeOfString:[self.schoolClass name]].location == NSNotFound)) {
-                self.schoolClass.aeriesID = stupidId;
-                if(i == 0) {
-                    skipRequest = YES;
-                }
-            }
-        }
-    }
-    
-    if(skipRequest) {
-        [self loadTableWithString:htmlStr];
-        return;
-    }
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:detailUrl]];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    
-    NSString *postString = [NSString stringWithFormat:@"ctl00$MainContent$subGBS$dlGN=%@&__EVENTTARGET=ctl00&MainContent&subGBS&dlGN",[self.schoolClass aeriesID]];
-    postString = [postString stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
-    NSData *data = [postString dataUsingEncoding:NSUTF8StringEncoding];
-    [request setHTTPBody:data];
-    //[request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[data length]] forHTTPHeaderField:@"Content-Length"];
-    
-    receivedData = [[NSMutableData alloc] init];
-    [NSURLConnection connectionWithRequest:request delegate:self];
-    //NSURLResponse *response;
-    //receivedData = [NSMutableData dataWithData:[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil]];
-    //[self connectionDidFinishLoading:nil];
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [self loadIds];
 }
 
-/*- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace {
-    return [protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
-    NSArray *trustedHosts = [[NSArray alloc] initWithObjects:@"rjuhsd.us", nil];
-    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust])
-        if ([trustedHosts containsObject:challenge.protectionSpace.host])
-            [challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
-    
-    [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
-}*/
-
--(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    [receivedData appendData:data];
+-(void)loadIds {
+    NSString *string = [NSString stringWithFormat:@"$('select option:contains(\\'%@\\')').prop({selected: true}).change();", self.schoolClass.name];
+    [webView stringByEvaluatingJavaScriptFromString:string];
+    [self performSelector:@selector(loadAssignments) withObject:nil afterDelay:1];
 }
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
@@ -116,35 +54,27 @@ UIAlertView *alert;
     [alert show];
 }
 
--(void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    //initialize convert the received data to string with UTF8 encoding
-    NSString *htmlSTR = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
-    [self loadTableWithString: htmlSTR];
-}
-
--(void)loadTableWithString: (NSString *)htmlStr {
-    TFHpple *mainParser = [TFHpple hppleWithHTMLData:[htmlStr dataUsingEncoding:NSUTF8StringEncoding]];
+-(void)loadAssignments {
+    assignments = [[NSMutableArray alloc] init];
+    NSString *base = @"$('#ctl00_MainContent_subGBS_tblEverything table[style=\"border-collapse:collapse;border-style:none;\"] table')[0].children[0].children";
+    NSInteger count = [[webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@.length",base]] integerValue];
     
-    NSLog(@"Title: %@", [mainParser searchWithXPathQuery:@"//title/text()"]);
-    
-    NSString *rowsBase = @"//table[@id='ctl00_MainContent_subGBS_tblEverything']//div[@id='ctl00_MainContent_subGBS_upEverything']/table[2]/tr/td/table/tr";
-    
-    NSArray *rows = [mainParser searchWithXPathQuery:rowsBase];
-    
-    for(int i=1;i<=[rows count];i++) {
-        NSString *cellsSelector = [NSString stringWithFormat:@"%@[%u]/td",rowsBase,i];
-        NSArray *cells = [mainParser searchWithXPathQuery:cellsSelector];
+    for(int i=1;i<=count-1;i++) {
+        NSString *cellSelectorBase = [NSString stringWithFormat:@"%@[%u].children",base,i];
         OHSAssignment *assign = [[OHSAssignment alloc] init];
-        assign.description = [[[cells objectAtIndex:2] text] substringFromIndex:7];
-        assign.type = [[cells objectAtIndex:3] text];
-        assign.category = [[cells objectAtIndex:4] text];
-        assign.score = [[cells objectAtIndex:5] text];
-        assign.correct = [[cells objectAtIndex:6] text];
-        assign.percent = [[cells objectAtIndex:7] text];
-        assign.status = [[cells objectAtIndex:8] text];
-        assign.dateCompleted = [[cells objectAtIndex:9] text];
-        assign.dateDue = [[cells objectAtIndex:10] text];
-        assign.gradingComplete = [[cells objectAtIndex:11] text];
+        assign.description = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[2].textContent",cellSelectorBase]];
+        if(assign.description.length > 7) {
+            assign.description = [assign.description substringFromIndex:6];
+        }
+        assign.type = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[3].textContent",cellSelectorBase]];
+        assign.category = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[4].textContent",cellSelectorBase]];
+        assign.score = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[5].textContent",cellSelectorBase]];
+        assign.correct = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[6].textContent",cellSelectorBase]];
+        assign.percent = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[7].textContent",cellSelectorBase]];
+        assign.status = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[8].textContent",cellSelectorBase]];
+        assign.dateCompleted = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[9].textContent",cellSelectorBase]];
+        assign.dateDue = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[10].textContent",cellSelectorBase]];
+        assign.gradingComplete = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[11].textContent",cellSelectorBase]];
         if(i != 1) {
             [assignments addObject:assign];
         }

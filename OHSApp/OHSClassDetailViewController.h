@@ -12,7 +12,7 @@
 #import "TFHpple.h"
 #import "OHSAssignmentViewController.h"
 
-@interface OHSClassDetailViewController : UITableViewController<NSURLConnectionDelegate>
+@interface OHSClassDetailViewController : UITableViewController<NSURLConnectionDelegate,UIWebViewDelegate>
 
 @property (nonatomic, strong) OHSClass *schoolClass;
 
