@@ -45,8 +45,7 @@ NSString *detailUrl = @"https://homelink.rjuhsd.us/GradebookDetails.aspx";
     [self performSelector:@selector(loadAssignments) withObject:nil afterDelay:1];
 }
 
-//Does this even work anymore?
--(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+-(void)webView:(UIWebView *)myWebView didFailLoadWithError:(NSError *)error {
     [alert dismissWithClickedButtonIndex:0 animated:YES];
     alert = [[UIAlertView alloc] initWithTitle:@"No Internet"
                                        message:[[[error userInfo] objectForKey:NSUnderlyingErrorKey] localizedDescription]
@@ -69,7 +68,9 @@ NSString *detailUrl = @"https://homelink.rjuhsd.us/GradebookDetails.aspx";
         }
         assign.type = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[3].textContent",cellSelectorBase]];
         assign.category = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[4].textContent",cellSelectorBase]];
-        assign.score = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[5].textContent",cellSelectorBase]];
+        NSString *first = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[5].children[0].children[0].children[0].children[0].textContent",cellSelectorBase]];
+        NSString *second = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[5].children[0].children[0].children[0].children[2].textContent",cellSelectorBase]];
+        assign.score = [NSString stringWithFormat:@"%@ / %@",first,second];
         assign.correct = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[6].textContent",cellSelectorBase]];
         assign.percent = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[7].textContent",cellSelectorBase]];
         assign.status = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[8].textContent",cellSelectorBase]];

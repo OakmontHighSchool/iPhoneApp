@@ -18,22 +18,29 @@
 {
     [super viewWillAppear:animated];
     
-    self.navigationItem.title = [self.assignment description];
+    [self setCell:0 inSection:0 withString:[self.assignment description] allowSelection:NO];
     
-    [self setCell:0 section:0 toAdd:[self.assignment percent]];
-    [self setCell:1 section:0 toAdd:[self.assignment type]];
-    [self setCell:2 section:0 toAdd:[self.assignment score]];
+    [self addToCell:0 inSection:1 withString:[self.assignment percent] allowSelection:NO];
+    [self addToCell:1 inSection:1 withString:[self.assignment type] allowSelection:NO];
+    [self addToCell:2 inSection:1 withString:[self.assignment score] allowSelection:NO];
     
-    [self setCell:0 section:1 toAdd:[self.assignment dateCompleted]];
-    [self setCell:1 section:1 toAdd:[self.assignment dateDue]];
-    [self setCell:2 section:1 toAdd:[self.assignment gradingComplete]];
+    [self addToCell:0 inSection:2 withString:[self.assignment dateCompleted] allowSelection:NO];
+    [self addToCell:1 inSection:2 withString:[self.assignment dateDue] allowSelection:NO];
+    [self addToCell:2 inSection:2 withString:[self.assignment gradingComplete] allowSelection:NO];
 }
 
--(void)setCell:(int)index section:(int)section toAdd:(NSString *)toAdd {
+-(void)addToCell:(int)index inSection:(int)section withString:(NSString *)toAdd allowSelection:(BOOL)allowSelection {
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:section];
     NSString *old = [self.tableView cellForRowAtIndexPath:indexPath].textLabel.text;
     NSString *new = [NSString stringWithFormat:@"%@: %@",old,toAdd];
-    [self.tableView cellForRowAtIndexPath:indexPath].textLabel.text = new;
+    [self setCell:index inSection:section withString:new allowSelection:allowSelection];
+}
+
+-(void)setCell:(int)index inSection:(int)section withString:(NSString *)str allowSelection:(BOOL)allowSelection {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:section];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    cell.textLabel.text = str;
+    cell.userInteractionEnabled = allowSelection;
 }
 
 @end
