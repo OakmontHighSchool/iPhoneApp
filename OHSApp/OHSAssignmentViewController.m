@@ -18,7 +18,7 @@
 {
     [super viewWillAppear:animated];
     
-    [self setCell:0 inSection:0 withString:[self.assignment description] allowSelection:NO];
+    [self setCell:0 inSection:0 withString:[self.assignment desc] allowSelection:NO];
     
     [self addToCell:0 inSection:1 withString:[self.assignment percent] allowSelection:NO];
     [self addToCell:1 inSection:1 withString:[self.assignment type] allowSelection:NO];

@@ -21,8 +21,7 @@
 
 BOOL isEditing = NO;
 
-- (IBAction)unwindToAccountsView:(UIStoryboardSegue *)segue
-{
+-(void)viewDidAppear:(BOOL)animated {
     [self reloadTable];
 }
 

@@ -25,25 +25,36 @@ BOOL newAccount = NO;
     [self.emailField setText:self.account.email];
     [self.passwordField setText:self.account.password];
     
+    [self.nameField setDelegate:self];
     [self.emailField setDelegate:self];
     [self.passwordField setDelegate:self];
 }
 
--(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    if([[sender title] isEqualToString:@"Save"]) {
+- (IBAction)buttonPress:(id)sender {
+    [self dismissViewControllerAndSave:[[sender title] isEqualToString:@"Save"]];
+}
+
+-(BOOL)shouldDismissViewController:(BOOL)save {
+    if(save) {
         return [self processAccount];
     } else {
         return YES;
     }
 }
 
+-(void)dismissViewControllerAndSave:(BOOL)save {
+    if([self shouldDismissViewController:save]) {
+        [self dismissViewControllerAnimated:YES completion:NULL];
+    }
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if (textField == self.emailField) {
+    if (textField == self.nameField) {
+        [self.emailField becomeFirstResponder];
+    } else if(textField == self.emailField) {
         [self.passwordField becomeFirstResponder];
     } else if(textField == self.passwordField) {
-        if([self processAccount]) {
-            [self performSegueWithIdentifier:@"AccountSave" sender:textField];
-        }
+        [self dismissViewControllerAndSave:YES];
     }
     return YES;
 }

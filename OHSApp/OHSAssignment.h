@@ -10,7 +10,7 @@
 
 @interface OHSAssignment : NSObject
 
-@property (strong,nonatomic) NSString *description;
+@property (strong,nonatomic) NSString *desc;
 @property (strong,nonatomic) NSString *type;
 @property (strong,nonatomic) NSString *category;
 @property (strong,nonatomic) NSString *score;

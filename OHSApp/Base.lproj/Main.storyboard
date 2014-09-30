@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment defaultVersion="1808" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--News View Controller - News-->
+        <!--News-->
         <scene sceneID="LWF-JO-wzh">
             <objects>
                 <tableViewController id="2ke-ei-rkL" customClass="OHSNewsViewController" sceneMemberID="viewController">
@@ -51,7 +52,7 @@
             </objects>
             <point key="canvasLocation" x="1179" y="-198"/>
         </scene>
-        <!--Article View Controller - View Article-->
+        <!--View Article-->
         <scene sceneID="1hP-t5-g0s">
             <objects>
                 <viewController id="JtM-u0-hmS" customClass="OHSArticleViewController" sceneMemberID="viewController">
@@ -65,7 +66,6 @@
                         <subviews>
                             <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MhY-Bh-RA0">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                         </subviews>
@@ -87,7 +87,7 @@
             </objects>
             <point key="canvasLocation" x="2128" y="-204"/>
         </scene>
-        <!--Navigation Controller - Grades-->
+        <!--Grades-->
         <scene sceneID="VsC-ck-dFv">
             <objects>
                 <navigationController definesPresentationContext="YES" id="NH1-Cf-wPh" sceneMemberID="viewController">
@@ -103,7 +103,7 @@
             </objects>
             <point key="canvasLocation" x="653" y="504"/>
         </scene>
-        <!--Accounts View Controller - Accounts-->
+        <!--Accounts-->
         <scene sceneID="30p-bd-2vN">
             <objects>
                 <tableViewController id="F4o-zo-JnF" customClass="OHSAccountsViewController" sceneMemberID="viewController">
@@ -142,7 +142,7 @@
                     <navigationItem key="navigationItem" title="Accounts" id="5aG-xt-ZVd">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="GxD-pJ-O90">
                             <connections>
-                                <segue destination="769-b6-mz5" kind="modal" identifier="AddAccount" id="wv7-gg-XAe"/>
+                                <segue destination="uVK-c1-EPf" kind="modal" id="0TG-BS-Sby"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="1rf-jx-GRC">
@@ -159,7 +159,7 @@
             </objects>
             <point key="canvasLocation" x="1179" y="504"/>
         </scene>
-        <!--Classes View Controller - Classes-->
+        <!--Classes-->
         <scene sceneID="wkY-J9-RTw">
             <objects>
                 <tableViewController id="c3U-LX-pO3" customClass="OHSClassesViewController" sceneMemberID="viewController">
@@ -206,7 +206,7 @@
             </objects>
             <point key="canvasLocation" x="1602" y="504"/>
         </scene>
-        <!--Navigation Controller - Map-->
+        <!--Map-->
         <scene sceneID="fdb-5N-TgT">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Mtw-yP-fbK" sceneMemberID="viewController">
@@ -222,7 +222,7 @@
             </objects>
             <point key="canvasLocation" x="646" y="1193"/>
         </scene>
-        <!--Map View Controller - Campus Map-->
+        <!--Campus Map-->
         <scene sceneID="cVe-nj-xhh">
             <objects>
                 <viewController id="7lp-KL-WJz" customClass="OHSMapViewController" sceneMemberID="viewController">
@@ -236,11 +236,9 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="StO-gm-bhj">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="school_map" translatesAutoresizingMaskIntoConstraints="NO" id="oaP-yV-uRE">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                 </subviews>
                             </scrollView>
@@ -255,7 +253,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="imageView" destination="oaP-yV-uRE" id="PN6-kp-gIN"/>
                         <outlet property="scrollView" destination="StO-gm-bhj" id="i0F-kW-f3k"/>
@@ -265,22 +262,7 @@
             </objects>
             <point key="canvasLocation" x="1193" y="1193"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="qFx-zf-ASf">
-            <objects>
-                <navigationController definesPresentationContext="YES" id="769-b6-mz5" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lh1-o2-BBP">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="gFT-rR-Upq" kind="relationship" relationship="rootViewController" id="UIu-a6-PYz"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ie1-0t-Riw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1602" y="1193"/>
-        </scene>
-        <!--Edit Account View Controller - Add Account-->
+        <!--Add Account-->
         <scene sceneID="EOL-wj-cLW">
             <objects>
                 <viewController id="gFT-rR-Upq" customClass="OHSEditAccountViewController" sceneMemberID="viewController">
@@ -292,21 +274,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RrI-Th-HJ6">
-                                <rect key="frame" x="20" y="114" width="280" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name (Optional)" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3hN-Af-S6v">
                                 <rect key="frame" x="20" y="76" width="280" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RrI-Th-HJ6">
+                                <rect key="frame" x="20" y="114" width="280" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Adc-4q-4Wc">
                                 <rect key="frame" x="20" y="152" width="280" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                             </textField>
@@ -316,12 +295,12 @@
                     <navigationItem key="navigationItem" title="Add Account" id="5gg-af-9k3">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="yGw-3X-I2P">
                             <connections>
-                                <segue destination="9tS-lh-91x" kind="unwind" unwindAction="unwindToAccountsView:" id="KUe-Yj-Vop"/>
+                                <action selector="buttonPress:" destination="gFT-rR-Upq" id="hNZ-GI-LD4"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="0yh-re-lHA">
                             <connections>
-                                <segue destination="9tS-lh-91x" kind="unwind" identifier="AccountSave" unwindAction="unwindToAccountsView:" id="L7H-Gt-SKI"/>
+                                <action selector="buttonPress:" destination="gFT-rR-Upq" id="Nas-GT-XeS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -332,11 +311,10 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="88Q-qc-WKh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="9tS-lh-91x" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2128" y="1193"/>
         </scene>
-        <!--Website View Controller - Oakmont Website-->
+        <!--Oakmont Website-->
         <scene sceneID="OMS-ax-ah8">
             <objects>
                 <viewController id="1ai-Pa-dEq" customClass="OHSWebsiteViewController" sceneMemberID="viewController">
@@ -382,7 +360,7 @@
             </objects>
             <point key="canvasLocation" x="1602" y="1869"/>
         </scene>
-        <!--Navigation Controller - Website-->
+        <!--Website-->
         <scene sceneID="hM1-qR-gAn">
             <objects>
                 <navigationController definesPresentationContext="YES" id="uIy-9t-00r" sceneMemberID="viewController">
@@ -399,7 +377,7 @@
             </objects>
             <point key="canvasLocation" x="646" y="1869"/>
         </scene>
-        <!--Calendar View Controller - Calendar-->
+        <!--Calendar-->
         <scene sceneID="4Jm-Au-YyX">
             <objects>
                 <viewController id="ftf-UD-u2u" customClass="OHSCalendarViewController" sceneMemberID="viewController">
@@ -413,7 +391,6 @@
                         <subviews>
                             <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QaO-cd-tGY">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                         </subviews>
@@ -440,7 +417,7 @@
             </objects>
             <point key="canvasLocation" x="1193" y="2539"/>
         </scene>
-        <!--Navigation Controller - Calendar-->
+        <!--Calendar-->
         <scene sceneID="aFd-ME-S6N">
             <objects>
                 <navigationController definesPresentationContext="YES" id="dUE-ql-C5E" sceneMemberID="viewController">
@@ -478,7 +455,7 @@
             </objects>
             <point key="canvasLocation" x="-410" y="1193"/>
         </scene>
-        <!--Navigation Controller - News-->
+        <!--News-->
         <scene sceneID="B9O-HJ-Ls5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0VQ-w8-4gP" sceneMemberID="viewController">
@@ -516,7 +493,7 @@
             </objects>
             <point key="canvasLocation" x="1602" y="-204"/>
         </scene>
-        <!--Class Detail View Controller - Assignments-->
+        <!--Assignments-->
         <scene sceneID="PhD-xm-MjS">
             <objects>
                 <tableViewController id="gYg-Rm-eN9" customClass="OHSClassDetailViewController" sceneMemberID="viewController">
@@ -563,7 +540,7 @@
             </objects>
             <point key="canvasLocation" x="2128" y="504"/>
         </scene>
-        <!--Assignment View Controller - Assignment-->
+        <!--Assignment-->
         <scene sceneID="SxH-ZS-KIa">
             <objects>
                 <tableViewController id="zfp-OA-lAH" customClass="OHSAssignmentViewController" sceneMemberID="viewController">
@@ -715,7 +692,7 @@
             </objects>
             <point key="canvasLocation" x="2498" y="505"/>
         </scene>
-        <!--Edit Account View Controller - Edit Account-->
+        <!--Edit Account-->
         <scene sceneID="wMh-OG-LTq">
             <objects>
                 <viewController id="YLv-Dy-uJn" customClass="OHSEditAccountViewController" sceneMemberID="viewController">
@@ -729,19 +706,16 @@
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="PON-7B-MgB">
                                 <rect key="frame" x="20" y="114" width="280" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name (Optional)" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aPB-HE-7nw">
                                 <rect key="frame" x="20" y="76" width="280" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UXV-FC-02F">
                                 <rect key="frame" x="20" y="152" width="280" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                             </textField>
@@ -751,12 +725,12 @@
                     <navigationItem key="navigationItem" title="Edit Account" id="ZOB-ex-k5Q">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="WJp-S4-S9V">
                             <connections>
-                                <segue destination="5va-AA-Zh7" kind="unwind" unwindAction="unwindToAccountsView:" id="cEz-t3-GLi"/>
+                                <action selector="buttonPress:" destination="YLv-Dy-uJn" id="WaA-u1-hjf"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="Vns-W3-Mla">
                             <connections>
-                                <segue destination="5va-AA-Zh7" kind="unwind" identifier="AccountSave" unwindAction="unwindToAccountsView:" id="DZD-dE-WzQ"/>
+                                <action selector="buttonPress:" destination="YLv-Dy-uJn" id="V7Z-Se-LPc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -767,9 +741,24 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pO4-Ra-9fF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="5va-AA-Zh7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2128" y="1869"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="q56-bS-MMQ">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="uVK-c1-EPf" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="bme-Hq-2ax"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2um-TG-ygH">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gFT-rR-Upq" kind="relationship" relationship="rootViewController" id="zoz-fY-yJF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TNF-CP-nJl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1602" y="1193"/>
         </scene>
     </scenes>
     <resources>

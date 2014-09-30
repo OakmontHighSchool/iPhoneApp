@@ -10,29 +10,29 @@
 	<string>OHSApp</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>02F22B85-204D-444F-81FF-B6DE8343C045</key>
+		<key>67A4692661543DACBD51B4BE093874A4EA7A7B2D</key>
 		<string>ssh://github.com/OakmontHighSchool/iPhoneApp.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>OHSApp.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>02F22B85-204D-444F-81FF-B6DE8343C045</key>
+		<key>67A4692661543DACBD51B4BE093874A4EA7A7B2D</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/OakmontHighSchool/iPhoneApp.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>02F22B85-204D-444F-81FF-B6DE8343C045</string>
+	<string>67A4692661543DACBD51B4BE093874A4EA7A7B2D</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>02F22B85-204D-444F-81FF-B6DE8343C045</string>
+			<string>67A4692661543DACBD51B4BE093874A4EA7A7B2D</string>
 			<key>IDESourceControlWCCName</key>
 			<string>OHSApp</string>
 		</dict>

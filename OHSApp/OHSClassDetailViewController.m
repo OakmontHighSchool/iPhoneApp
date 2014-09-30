@@ -62,9 +62,9 @@ NSString *detailUrl = @"https://homelink.rjuhsd.us/GradebookDetails.aspx";
     for(int i=1;i<=count-1;i++) {
         NSString *cellSelectorBase = [NSString stringWithFormat:@"%@[%u].children",base,i];
         OHSAssignment *assign = [[OHSAssignment alloc] init];
-        assign.description = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[2].textContent",cellSelectorBase]];
-        if(assign.description.length > 7) {
-            assign.description = [assign.description substringFromIndex:6];
+        assign.desc = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[2].textContent",cellSelectorBase]];
+        if(assign.desc.length > 7) {
+            assign.desc = [assign.desc substringFromIndex:6];
         }
         assign.type = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[3].textContent",cellSelectorBase]];
         assign.category = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[4].textContent",cellSelectorBase]];
@@ -103,7 +103,7 @@ NSString *detailUrl = @"https://homelink.rjuhsd.us/GradebookDetails.aspx";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AssignmentItem" forIndexPath:indexPath];
     
     OHSAssignment *assignment = (assignments)[indexPath.row];
-    cell.textLabel.text = assignment.description;
+    cell.textLabel.text = assignment.desc;
     
     return cell;
 }

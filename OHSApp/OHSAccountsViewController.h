@@ -15,8 +15,6 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
 
-- (IBAction)unwindToAccountsView:(UIStoryboardSegue *)segue;
-
 @property (strong, nonatomic) OHSAccountManager *accountManager;
 
 @end
