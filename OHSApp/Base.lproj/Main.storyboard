@@ -31,7 +31,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="apH-xC-xHh" kind="modal" identifier="showArticle" id="iaR-xb-rwk"/>
+                                    <segue destination="JtM-u0-hmS" kind="push" identifier="showArticle" id="Amd-gZ-ZnC"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -71,21 +71,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="View Article" id="gYW-P5-fMA">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="xky-Ba-oAx">
-                            <connections>
-                                <segue destination="w8B-js-s7X" kind="unwind" unwindAction="unwindToArticleOverview:" id="N12-K4-Rfi"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="View Article" id="gYW-P5-fMA"/>
                     <connections>
                         <outlet property="webView" destination="MhY-Bh-RA0" id="zHc-fc-2bK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehi-jb-8CS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="w8B-js-s7X" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2128" y="-204"/>
+            <point key="canvasLocation" x="1602" y="-198"/>
         </scene>
         <!--Grades-->
         <scene sceneID="VsC-ck-dFv">
@@ -473,25 +466,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2cj-q1-Wao" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="653" y="-198"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="gPf-N9-IT5">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="apH-xC-xHh" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="7dH-kl-Ig4"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nVa-XQ-LBQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="JtM-u0-hmS" kind="relationship" relationship="rootViewController" id="DLD-qv-NNv"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ex7-OK-OsX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1602" y="-204"/>
         </scene>
         <!--Assignments-->
         <scene sceneID="PhD-xm-MjS">

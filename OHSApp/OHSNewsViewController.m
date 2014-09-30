@@ -78,8 +78,8 @@
         //Get row id
         NSInteger rowId = [self.tableView indexPathForSelectedRow].row;
         //Get new view controller...
-        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
-        OHSArticleViewController *controller = (OHSArticleViewController *)navController.topViewController;
+        //UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
+        OHSArticleViewController *controller = (OHSArticleViewController *)segue.destinationViewController;
         OHSNewsArticle *article = [self.articles objectAtIndex:rowId];
         //Get the link url
         NSString *url = article.link;

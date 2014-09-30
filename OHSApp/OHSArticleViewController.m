@@ -10,8 +10,7 @@
 
 @implementation OHSArticleViewController
 
--(void) viewDidLoad
-{
+-(void) viewDidLoad {
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.url]]];
 }
 
