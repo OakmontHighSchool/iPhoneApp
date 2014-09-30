@@ -48,8 +48,8 @@ NSString *detailUrl = @"https://homelink.rjuhsd.us/GradebookDetails.aspx";
 -(void)webView:(UIWebView *)myWebView didFailLoadWithError:(NSError *)error {
     [alert dismissWithClickedButtonIndex:0 animated:YES];
     alert = [[UIAlertView alloc] initWithTitle:@"No Internet"
-                                       message:[[[error userInfo] objectForKey:NSUnderlyingErrorKey] localizedDescription]
-                                      delegate:nil
+                             message:[[[error userInfo] objectForKey:NSUnderlyingErrorKey] localizedDescription]
+                             delegate:nil
                              cancelButtonTitle:@"Ok"
                              otherButtonTitles:nil];
     [alert show];

@@ -31,7 +31,6 @@
 		A251E2111997BB9200F7946A /* OHSWebsiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A251E2101997BB9200F7946A /* OHSWebsiteViewController.m */; };
 		A251E2161997BDF800F7946A /* OHSCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A251E2151997BDF800F7946A /* OHSCalendarViewController.m */; };
 		A251E21A1997C35000F7946A /* OHSMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A251E2191997C35000F7946A /* OHSMapViewController.m */; };
-		A252594919DA2A1D00343B69 /* OHSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A252594819DA2A1D00343B69 /* OHSNavigationController.m */; };
 		A27895C31996D20A000390DC /* OHSArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A27895C21996D20A000390DC /* OHSArticleViewController.m */; };
 		A27895CA19970ACF000390DC /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = A27895C419970ACF000390DC /* XPathQuery.m */; };
 		A27895CB19970ACF000390DC /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = A27895C719970ACF000390DC /* TFHpple.m */; };
@@ -93,8 +92,6 @@
 		A251E2151997BDF800F7946A /* OHSCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHSCalendarViewController.m; sourceTree = "<group>"; };
 		A251E2181997C35000F7946A /* OHSMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHSMapViewController.h; sourceTree = "<group>"; };
 		A251E2191997C35000F7946A /* OHSMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHSMapViewController.m; sourceTree = "<group>"; };
-		A252594719DA2A1D00343B69 /* OHSNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHSNavigationController.h; sourceTree = "<group>"; };
-		A252594819DA2A1D00343B69 /* OHSNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHSNavigationController.m; sourceTree = "<group>"; };
 		A27895C11996D20A000390DC /* OHSArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHSArticleViewController.h; sourceTree = "<group>"; };
 		A27895C21996D20A000390DC /* OHSArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHSArticleViewController.m; sourceTree = "<group>"; };
 		A27895C419970ACF000390DC /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
@@ -172,8 +169,6 @@
 		A23F500219789F000053CEB0 /* OHSApp */ = {
 			isa = PBXGroup;
 			children = (
-				A252594719DA2A1D00343B69 /* OHSNavigationController.h */,
-				A252594819DA2A1D00343B69 /* OHSNavigationController.m */,
 				A27895CD19970ADE000390DC /* Hpple */,
 				A23F500B19789F000053CEB0 /* OHSAppDelegate.h */,
 				A23F500C19789F000053CEB0 /* OHSAppDelegate.m */,
@@ -411,7 +406,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2BA8EE919999F0F00B9646D /* OHSAccount.m in Sources */,
-				A252594919DA2A1D00343B69 /* OHSNavigationController.m in Sources */,
 				A27895CC19970ACF000390DC /* TFHppleElement.m in Sources */,
 				A23F500919789F000053CEB0 /* main.m in Sources */,
 				A212F52419C54FE300065CDD /* OHSAssignment.m in Sources */,

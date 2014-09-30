@@ -12,8 +12,6 @@
 
 @property (nonatomic, strong) NSMutableArray *articles;
 
-- (IBAction)unwindToArticleOverview:(UIStoryboardSegue *)segue;
-
 - (IBAction)reloadArticles:(id)sender;
 
 @end

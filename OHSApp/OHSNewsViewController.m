@@ -13,11 +13,6 @@
 
 @implementation OHSNewsViewController
 
-- (IBAction)unwindToArticleOverview:(UIStoryboardSegue *)segue
-{
-    //Necessary for some reason
-}
-
 - (IBAction)reloadArticles:(id)sender {
     [self downloadNewsArticles];
 }
@@ -78,7 +73,6 @@
         //Get row id
         NSInteger rowId = [self.tableView indexPathForSelectedRow].row;
         //Get new view controller...
-        //UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
         OHSArticleViewController *controller = (OHSArticleViewController *)segue.destinationViewController;
         OHSNewsArticle *article = [self.articles objectAtIndex:rowId];
         //Get the link url
