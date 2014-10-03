@@ -76,10 +76,10 @@ UIAlertView *alert;
         if([titleNodes count] > 0) {
             rowCount++;
             OHSClass *class = [[OHSClass alloc] init];
-            class.name = [self textOfTdAt:0 parser:mainParser base:trIdBase];
-            class.period = [self textOfTdAt:2 parser:mainParser base:trIdBase];
-            class.teacherName = [self textOfTdAt:3 parser:mainParser base:trIdBase];
-            class.percentage = [self textOfTdAt:4 parser:mainParser base:trIdBase];
+            class.name = [self textOfTdAt:1 parser:mainParser base:trIdBase];
+            class.period = [self textOfTdAt:3 parser:mainParser base:trIdBase];
+            class.teacherName = [self textOfTdAt:4 parser:mainParser base:trIdBase];
+            class.percentage = [self textOfTdAt:5 parser:mainParser base:trIdBase];
             class.mark = [self textOfTdAt:6 parser:mainParser base:trIdBase];
             class.missingAssign = [self textOfTdAt:8 parser:mainParser base:trIdBase];
             class.lastUpdate = [self textOfTdAt:10 parser:mainParser base:trIdBase];
@@ -103,8 +103,10 @@ UIAlertView *alert;
 
 - (NSString *)textOfTdAt:(NSInteger)i parser:(TFHpple *)hppleParser base:(NSString *)trIdBase {
     NSString *path = [NSString stringWithFormat:@"%@/td",trIdBase];
-    if(i == 0) {
+    if(i == 1) {
         path = [NSString stringWithFormat:@"%@/a",path];
+    } else if(i == 5) {
+        path = [NSString stringWithFormat:@"%@[%ld]/span",path,(long)i];
     } else {
         path = [NSString stringWithFormat:@"%@[%ld]",path,(long)i];
     }
@@ -129,6 +131,7 @@ UIAlertView *alert;
     
     OHSClass *class = (classes)[indexPath.row];
     cell.textLabel.text = class.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%%",class.percentage];
     
     return cell;
 }

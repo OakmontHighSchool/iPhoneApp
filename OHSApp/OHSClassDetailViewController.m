@@ -65,6 +65,16 @@ NSString *detailUrl = @"https://homelink.rjuhsd.us/GradebookDetails.aspx";
         assign.desc = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[2].textContent",cellSelectorBase]];
         if(assign.desc.length > 7) {
             assign.desc = [assign.desc substringFromIndex:6];
+            NSString *new = @"";
+            for(int i=0;i<assign.desc.length;i++) {
+                char c = [assign.desc characterAtIndex:i];
+                if(c != '\n') {
+                    new = [NSString stringWithFormat:@"%@%c",new,c];
+                } else {
+                    break;
+                }
+            }
+            assign.desc = new;
         }
         assign.type = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[3].textContent",cellSelectorBase]];
         assign.category = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[4].textContent",cellSelectorBase]];
@@ -86,29 +96,27 @@ NSString *detailUrl = @"https://homelink.rjuhsd.us/GradebookDetails.aspx";
     [alert dismissWithClickedButtonIndex:0 animated:YES];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     return [assignments count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AssignmentItem" forIndexPath:indexPath];
     
     OHSAssignment *assignment = (assignments)[indexPath.row];
     cell.textLabel.text = assignment.desc;
+    cell.detailTextLabel.text = assignment.percent;
     
     return cell;
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"viewAssignment"]){
         //Get row id
         NSInteger rowId = [self.tableView indexPathForSelectedRow].row;
