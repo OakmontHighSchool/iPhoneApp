@@ -8,10 +8,6 @@
 
 #import "OHSAssignmentViewController.h"
 
-@interface OHSAssignmentViewController ()
-
-@end
-
 @implementation OHSAssignmentViewController
 
 - (void)viewWillAppear:(BOOL)animated

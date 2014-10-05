@@ -7,6 +7,9 @@
 //
 
 #import "OHSClassesViewController.h"
+#import "TFHpple.h"
+#import "OHSClass.h"
+#import "OHSClassDetailViewController.h"
 
 @implementation OHSClassesViewController
 

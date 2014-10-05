@@ -7,11 +7,14 @@
 //
 
 #import "OHSAccountsViewController.h"
+#import "OHSClassesViewController.h"
+#import "OHSEditAccountViewController.h"
 #import "OHSAccount.h"
 
 @implementation OHSAccountsViewController
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
     self.accountManager = [[OHSAccountManager alloc] init];
     [self.tableView reloadData];
     if([self.accountManager.accounts count] <= 0) {
@@ -22,6 +25,7 @@
 BOOL isEditing = NO;
 
 -(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [self reloadTable];
 }
 

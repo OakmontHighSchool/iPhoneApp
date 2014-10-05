@@ -12,8 +12,8 @@
 
 NSString *websiteUrl = @"http://ohs.rjuhsd.us";
 
--(void)viewDidLoad
-{
+-(void)viewDidLoad {
+    [super viewDidLoad];
     [self loadWebpage];
 }
 
@@ -30,8 +30,7 @@ NSString *websiteUrl = @"http://ohs.rjuhsd.us";
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:websiteUrl]]];
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if(buttonIndex == 0) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:websiteUrl]];
     }

@@ -7,10 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TFHpple.h"
-#import "OHSClass.h"
 #import "OHSAccount.h"
-#import "OHSClassDetailViewController.h"
 
 @interface OHSClassesViewController : UITableViewController<NSURLConnectionDelegate>
 

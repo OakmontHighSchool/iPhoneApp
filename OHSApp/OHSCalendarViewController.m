@@ -12,8 +12,8 @@
 
 NSString *calendarUrl = @"http://ohs.rjuhsd.us/Page/2";
 
--(void)viewDidLoad
-{
+-(void)viewDidLoad {
+    [super viewDidLoad];
     [self loadWebpage];
 }
 
@@ -30,8 +30,7 @@ NSString *calendarUrl = @"http://ohs.rjuhsd.us/Page/2";
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:calendarUrl]]];
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if(buttonIndex == 0) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:calendarUrl]];
     }

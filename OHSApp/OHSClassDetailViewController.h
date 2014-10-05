@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "OHSClass.h"
-#import "OHSAssignment.h"
-#import "OHSAssignmentViewController.h"
 
 @interface OHSClassDetailViewController : UITableViewController<UIWebViewDelegate>
 

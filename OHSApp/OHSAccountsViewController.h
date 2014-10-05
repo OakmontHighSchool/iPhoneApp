@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "OHSAccountManager.h"
-#import "OHSClassesViewController.h"
-#import "OHSEditAccountViewController.h"
 
 @interface OHSAccountsViewController : UITableViewController
 

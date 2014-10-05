@@ -8,7 +8,6 @@
 
 #import "OHSAccount.h"
 #import "OHSAccountManager.h"
-#import "TFHpple.h"
 
 @implementation OHSAccount
 
