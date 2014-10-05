@@ -12,8 +12,7 @@
 
 BOOL newAccount = NO;
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     if(self.account == nil) {
@@ -85,8 +84,7 @@ BOOL newAccount = NO;
     }
 }
 
--(BOOL) NSStringIsValidEmail:(NSString *)checkString
-{
+-(BOOL) NSStringIsValidEmail:(NSString *)checkString {
     BOOL stricterFilter = NO; // Discussion http://blog.logichigh.com/2010/09/02/validating-an-e-mail-address/
     NSString *stricterFilterString = @"[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}";
     NSString *laxString = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*";

@@ -10,8 +10,7 @@
 
 @implementation OHSAssignmentViewController
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     [self setCell:0 inSection:0 withString:[self.assignment desc] allowSelection:NO];

@@ -26,8 +26,7 @@
     [popup showInView:self.view];
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if(buttonIndex == 0) {
         UIImageWriteToSavedPhotosAlbum(self.imageView.image, nil, nil, nil);
     }
