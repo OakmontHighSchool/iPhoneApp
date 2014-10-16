@@ -27,7 +27,7 @@ NSString *websiteUrl = @"http://ohs.rjuhsd.us";
 }
 
 -(void)loadWebpage {
-    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:websiteUrl]]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:websiteUrl]]];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {

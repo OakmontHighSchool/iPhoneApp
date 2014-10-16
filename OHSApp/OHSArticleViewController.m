@@ -12,7 +12,7 @@
 
 -(void) viewDidLoad {
     [super viewDidLoad];
-    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.url]]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.url]]];
 }
 
 @end

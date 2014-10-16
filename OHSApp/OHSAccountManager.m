@@ -30,7 +30,7 @@ NSString *filePath;
         [[NSFileManager defaultManager] createFileAtPath:filePath contents:nil attributes:nil];
     }
     //filePath = [[NSBundle mainBundle] pathForResource:@"accounts" ofType:@"json"];
-    _accounts = [[NSMutableArray alloc] init];
+    self.accounts = [[NSMutableArray alloc] init];
     NSData *fileData = [NSData dataWithContentsOfFile:filePath];
     NSArray *json = [NSJSONSerialization JSONObjectWithData:fileData options:kNilOptions error:nil];
     
@@ -44,12 +44,12 @@ NSString *filePath;
         if(account.name == nil) {
             account.name = @"";
         }
-        [_accounts addObject:account];
+        [self.accounts addObject:account];
     }
 }
 
 -(void)saveChangesFor:(OHSAccount *)account index:(int)index {
-    [_accounts replaceObjectAtIndex:index withObject:account];
+    [self.accounts replaceObjectAtIndex:index withObject:account];
     [self saveFile];
 }
 
@@ -59,14 +59,14 @@ NSString *filePath;
 }
 
 -(void)saveNewAccount:(OHSAccount *)account {
-    [_accounts addObject:account];
+    [self.accounts addObject:account];
     [self saveFile];
 }
 
 -(void)saveFile {
     NSMutableArray *jsonAccounts = [[NSMutableArray alloc] init];
-    for (int i=0;i<[_accounts count];i++) {
-        OHSAccount *account = [_accounts objectAtIndex:i];
+    for (int i=0;i<[self.accounts count];i++) {
+        OHSAccount *account = [self.accounts objectAtIndex:i];
         NSArray *objects=[[NSArray alloc]initWithObjects:account.email,account.password,account.name,nil];
         NSArray *keys=[[NSArray alloc]initWithObjects:@"email",@"password",@"name",nil];
         NSDictionary *dict=[NSDictionary dictionaryWithObjects:objects forKeys:keys];
