@@ -12,5 +12,6 @@
 @interface OHSClassDetailViewController : UITableViewController<UIWebViewDelegate>
 
 @property (nonatomic, strong) OHSClass *schoolClass;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 
 @end

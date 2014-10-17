@@ -18,8 +18,12 @@ NSString *logoutURLString = @"https://homelink.rjuhsd.us/Logout.aspx";
 
 NSMutableArray *classes;
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+-(void)viewDidLoad {
+    [self startProgressBar];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [self downloadClasses];
 }
 
@@ -27,14 +31,10 @@ UIAlertView *alert;
 
 - (void)downloadClasses {
     classes = [[NSMutableArray alloc] init];
-    alert = [[UIAlertView alloc] initWithTitle:@"Downloading Classes"
-                                                    message:@"Please wait while your classes are downloaded."
-                                                   delegate:nil
-                                          cancelButtonTitle:@"Cancel"
-                                          otherButtonTitles:nil];
-    [alert show];
+    [self.tableView reloadData];
+    [self startProgressBar];
     [NSData dataWithContentsOfURL:[NSURL URLWithString:logoutURLString]]; //Logout (if necessary) to allow login
-    
+    [self.progressBar setProgress:0.15 animated:YES];
     NSURL *loginUrl = [NSURL URLWithString:loginURLString];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:loginUrl];
@@ -46,15 +46,20 @@ UIAlertView *alert;
     [request setHTTPBody:data];
     [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[data length]] forHTTPHeaderField:@"Content-Length"];
     self.receivedData = [[NSMutableData alloc] init];
+    [self.progressBar setProgress:0.3 animated:YES];
     [[NSURLConnection connectionWithRequest:request delegate:self] start];
 }
 
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     [self.receivedData appendData:data];
+    float progress = self.progressBar.progress;
+    if(progress < 0.95) {
+        [self.progressBar setProgress:(progress+=.01) animated:YES];
+    }
 }
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    [alert dismissWithClickedButtonIndex:0 animated:YES];
+    [self finishProgressBar];
     alert = [[UIAlertView alloc] initWithTitle:@"No Internet"
                                        message:[[[error userInfo] objectForKey:NSUnderlyingErrorKey] localizedDescription]
                                       delegate:nil
@@ -101,7 +106,7 @@ UIAlertView *alert;
     }
     
     [self.tableView reloadData];
-    [alert dismissWithClickedButtonIndex:0 animated:YES];
+    [self finishProgressBar];
 }
 
 - (NSString *)textOfTdAt:(NSInteger)i parser:(TFHpple *)hppleParser base:(NSString *)trIdBase {
@@ -148,4 +153,24 @@ UIAlertView *alert;
 - (IBAction)refreshButtonClick:(id)sender {
     [self downloadClasses];
 }
+
+-(void)startProgressBar {
+    [self.progressBar setProgress:0 animated:NO];
+    [self.progressBar setHidden:NO];
+}
+
+-(void)finishProgressBar {
+    [self.progressBar setProgress:1 animated:YES];
+    [NSTimer scheduledTimerWithTimeInterval:0.75 target:self selector:@selector(hideProgressBar) userInfo:nil repeats:NO];
+}
+
+-(void)hideProgressBar {
+    CATransition *animation = [CATransition animation];
+    animation.type = kCATransitionFade;
+    animation.duration = 0.3;
+    [self.progressBar.layer addAnimation:animation forKey:nil];
+    
+    self.progressBar.hidden = YES;
+}
+
 @end

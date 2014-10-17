@@ -13,5 +13,6 @@
 
 @property (retain, nonatomic) NSMutableData *receivedData;
 @property (nonatomic) OHSAccount *account;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 
 @end

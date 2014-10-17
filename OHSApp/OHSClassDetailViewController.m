@@ -18,25 +18,27 @@ UIWebView *webView; //WebView for doing dirty things with
 NSString *detailUrl = @"https://homelink.rjuhsd.us/GradebookDetails.aspx";
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
     self.navigationItem.title = [self.schoolClass name];
+    [self.progressBar setHidden:NO];
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated {
     [self downloadClasses];
 }
 
 - (void)downloadClasses {
+    [self startProgressBar];
     assignments = [[NSMutableArray alloc] init];
-    alert = [[UIAlertView alloc] initWithTitle:@"Downloading Assigments"
-                                       message:@"Please wait while your assigments are downloaded."
-                                      delegate:nil
-                             cancelButtonTitle:@"Cancel"
-                             otherButtonTitles:nil];
-    [alert show];
+    [self.tableView reloadData];
+    
     webView = [[UIWebView alloc] init];
     [webView setDelegate:self];
     [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:detailUrl]]];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    
     [self loadIds];
 }
 
@@ -47,7 +49,7 @@ NSString *detailUrl = @"https://homelink.rjuhsd.us/GradebookDetails.aspx";
 }
 
 -(void)webView:(UIWebView *)myWebView didFailLoadWithError:(NSError *)error {
-    [alert dismissWithClickedButtonIndex:0 animated:YES];
+    [self finishProgressBar];
     alert = [[UIAlertView alloc] initWithTitle:@"No Internet"
                              message:[[[error userInfo] objectForKey:NSUnderlyingErrorKey] localizedDescription]
                              delegate:nil
@@ -94,7 +96,7 @@ NSString *detailUrl = @"https://homelink.rjuhsd.us/GradebookDetails.aspx";
     }
     
     [self.tableView reloadData];
-    [alert dismissWithClickedButtonIndex:0 animated:YES];
+    [self finishProgressBar];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -128,6 +130,34 @@ NSString *detailUrl = @"https://homelink.rjuhsd.us/GradebookDetails.aspx";
 
 - (IBAction)refreshButtonPress:(id)sender {
     [self downloadClasses];
+}
+
+-(void)startProgressBar {
+    [self.progressBar setProgress:0 animated:NO];
+    [self.progressBar setHidden:NO];
+    [self performSelector:@selector(increaseProgress) withObject:nil afterDelay:0.3];
+}
+
+-(void)finishProgressBar {
+    [self.progressBar setProgress:1 animated:YES];
+    [NSTimer scheduledTimerWithTimeInterval:0.75 target:self selector:@selector(hideProgressBar) userInfo:nil repeats:NO];
+}
+
+-(void)hideProgressBar {
+    CATransition *animation = [CATransition animation];
+    animation.type = kCATransitionFade;
+    animation.duration = 0.3;
+    [self.progressBar.layer addAnimation:animation forKey:nil];
+    
+    self.progressBar.hidden = YES;
+}
+
+float progress;
+
+-(void)increaseProgress {
+    float progress = (self.progressBar.progress + 0.01f);
+    [self.progressBar setProgress:progress animated:YES];
+    if(progress < 0.95f) [self performSelector:@selector(increaseProgress) withObject:nil afterDelay:0.4];
 }
 
 @end
