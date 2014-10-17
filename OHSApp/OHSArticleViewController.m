@@ -7,11 +7,16 @@
 //
 
 #import "OHSArticleViewController.h"
+#import "OHSProgressBarManager.h"
 
 @implementation OHSArticleViewController
 
+OHSProgressBarManager *barManager;
+
 -(void) viewDidLoad {
     [super viewDidLoad];
+    barManager = [[OHSProgressBarManager alloc] initWithBar:self.progressBar];
+    [barManager startProgressBar];
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.url]]];
     [self.webView setDelegate:self];
 }
@@ -23,6 +28,10 @@
                              cancelButtonTitle:@"Ok"
                              otherButtonTitles:nil];
     [alert show];
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView {
+    [barManager finishProgressBar];
 }
 
 @end

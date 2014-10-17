@@ -11,6 +11,7 @@
 @interface OHSArticleViewController : UIViewController <UIWebViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 
 @property(nonatomic) NSString *url;
 
