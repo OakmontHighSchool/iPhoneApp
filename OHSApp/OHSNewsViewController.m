@@ -17,18 +17,14 @@
     [self downloadNewsArticles];
 }
 
+UIAlertView *alert;
+
 - (void)downloadNewsArticles {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Downloading News"
-                                       message:@"Please wait while the school news is downloaded."
-                                      delegate:nil
-                             cancelButtonTitle:@"Cancel"
-                             otherButtonTitles:nil];
-    [alert show];
+    [self startProgressBar];
     NSURL *newsUrl = [NSURL URLWithString:@"http://ohs.rjuhsd.us/site/default.aspx?PageID=1"];
     NSData *newsHtmlData = [NSData dataWithContentsOfURL:newsUrl];
     
     TFHpple *newsParser = [TFHpple hppleWithHTMLData:newsHtmlData];
-    
     
     NSString *baseXpathQueryString = @"//div[@class='ui-widget app headlines']/div[@class='ui-widget-detail']/ul[@class='ui-articles']/li/div/h1/a";
     NSString *titleXpathQueryString = [NSString stringWithFormat:@"%@%@",baseXpathQueryString,@"/span/text()"];
@@ -60,11 +56,11 @@
     
     self.articles = newArticles;
     [self.tableView reloadData];
-    [alert dismissWithClickedButtonIndex:0 animated:YES];
+    [self finishProgressBar];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [self downloadNewsArticles];
 }
 
@@ -100,6 +96,34 @@
     cell.textLabel.text = article.title;
     
     return cell;
+}
+
+-(void)startProgressBar {
+    [self.progressBar setProgress:0 animated:NO];
+    [self.progressBar setHidden:NO];
+    [self performSelector:@selector(increaseProgress) withObject:nil afterDelay:0.3];
+}
+
+-(void)finishProgressBar {
+    [self.progressBar setProgress:1 animated:YES];
+    [NSTimer scheduledTimerWithTimeInterval:0.75 target:self selector:@selector(hideProgressBar) userInfo:nil repeats:NO];
+}
+
+-(void)hideProgressBar {
+    CATransition *animation = [CATransition animation];
+    animation.type = kCATransitionFade;
+    animation.duration = 0.3;
+    [self.progressBar.layer addAnimation:animation forKey:nil];
+    
+    self.progressBar.hidden = YES;
+}
+
+float progress;
+
+-(void)increaseProgress {
+    float progress = (self.progressBar.progress + 0.01f);
+    [self.progressBar setProgress:progress animated:YES];
+    if(progress < 0.95f) [self performSelector:@selector(increaseProgress) withObject:nil afterDelay:0.4];
 }
 
 @end

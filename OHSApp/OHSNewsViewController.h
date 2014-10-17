@@ -11,6 +11,7 @@
 @interface OHSNewsViewController : UITableViewController
 
 @property (nonatomic, strong) NSMutableArray *articles;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 
 - (IBAction)reloadArticles:(id)sender;
 
