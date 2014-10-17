@@ -7,18 +7,22 @@
 //
 
 #import "OHSWebsiteViewController.h"
+#import "OHSProgressBarManager.h"
 
 @implementation OHSWebsiteViewController
 
 NSString *websiteUrl = @"http://ohs.rjuhsd.us";
+OHSProgressBarManager *barManager;
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+    barManager = [[OHSProgressBarManager alloc] initWithBar:self.progressBar];
     [self.webView setDelegate:self];
     [self loadWebpage];
 }
 
 - (IBAction)refreshButtonPressed:(id)sender {
+    [barManager startProgressBar];
     [self loadWebpage];
 }
 
@@ -44,6 +48,10 @@ NSString *websiteUrl = @"http://ohs.rjuhsd.us";
                              cancelButtonTitle:@"Ok"
                              otherButtonTitles:nil];
     [alert show];
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView {
+    [barManager finishProgressBar];
 }
 
 @end

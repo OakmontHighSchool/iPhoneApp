@@ -7,18 +7,22 @@
 //
 
 #import "OHSCalendarViewController.h"
+#import "OHSProgressBarManager.h"
 
 @implementation OHSCalendarViewController
 
 NSString *calendarUrl = @"http://ohs.rjuhsd.us/Page/2";
+OHSProgressBarManager *barManager;
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+    barManager = [[OHSProgressBarManager alloc] initWithBar:self.progressBar];
     [self.webView setDelegate:self];
     [self loadWebpage];
 }
 
 - (IBAction)refreshButtonPressed:(id)sender {
+    [barManager startProgressBar];
     [self loadWebpage];
 }
 
@@ -44,6 +48,10 @@ NSString *calendarUrl = @"http://ohs.rjuhsd.us/Page/2";
                              cancelButtonTitle:@"Ok"
                              otherButtonTitles:nil];
     [alert show];
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView {
+    [barManager finishProgressBar];
 }
 
 @end

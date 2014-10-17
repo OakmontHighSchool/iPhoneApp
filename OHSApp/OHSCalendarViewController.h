@@ -11,5 +11,6 @@
 @interface OHSCalendarViewController : UIViewController <UIActionSheetDelegate,UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 
 @end

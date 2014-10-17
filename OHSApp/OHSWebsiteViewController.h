@@ -11,5 +11,6 @@
 @interface OHSWebsiteViewController : UIViewController <UIActionSheetDelegate,UIWebViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 
 @end

@@ -331,11 +331,24 @@
         <scene sceneID="OMS-ax-ah8">
             <objects>
                 <viewController id="1ai-Pa-dEq" customClass="OHSWebsiteViewController" sceneMemberID="viewController">
-                    <webView key="view" contentMode="scaleToFill" scalesPageToFit="YES" id="Hbu-O1-b1v">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </webView>
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ggi-jf-QKE"/>
+                        <viewControllerLayoutGuide type="bottom" id="1dJ-nb-AJW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tZP-M1-Oge">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qew-Zx-cKf">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wLg-HH-Hh7">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="2"/>
+                            </progressView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                     <tabBarItem key="tabBarItem" title="Website" id="c3N-V4-Fmt"/>
                     <navigationItem key="navigationItem" title="Oakmont Website" id="jzC-Ir-THj">
                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="RMP-RG-Cv4">
@@ -350,7 +363,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="webView" destination="Hbu-O1-b1v" id="fod-Xm-lmc"/>
+                        <outlet property="progressBar" destination="wLg-HH-Hh7" id="lfY-Zl-Yz0"/>
+                        <outlet property="webView" destination="Qew-Zx-cKf" id="w46-My-rH6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lPK-78-zVW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -379,7 +393,7 @@
                 <navigationController definesPresentationContext="YES" id="uIy-9t-00r" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Website" image="bar_website" id="kws-H8-YtT"/>
                     <navigationItem key="navigationItem" id="56H-uU-agi"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pKu-TC-ewY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="pKu-TC-ewY">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -399,13 +413,16 @@
                         <viewControllerLayoutGuide type="bottom" id="xzO-Gs-0hp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IVC-aW-F5h">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QaO-cd-tGY">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zap-sK-DiX">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="2"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -423,6 +440,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="progressBar" destination="zap-sK-DiX" id="D34-BJ-4lm"/>
                         <outlet property="webView" destination="QaO-cd-tGY" id="JUA-Iv-Uaw"/>
                     </connections>
                 </viewController>
@@ -435,7 +453,7 @@
             <objects>
                 <navigationController definesPresentationContext="YES" id="dUE-ql-C5E" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Calendar" image="bar_calendar" id="9c0-u1-qAg"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="67t-tz-yt6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="67t-tz-yt6">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
