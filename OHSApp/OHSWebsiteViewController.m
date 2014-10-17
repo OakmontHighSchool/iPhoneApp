@@ -14,6 +14,7 @@ NSString *websiteUrl = @"http://ohs.rjuhsd.us";
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+    [self.webView setDelegate:self];
     [self loadWebpage];
 }
 
@@ -34,6 +35,15 @@ NSString *websiteUrl = @"http://ohs.rjuhsd.us";
     if(buttonIndex == 0) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:websiteUrl]];
     }
+}
+
+-(void)webView:(UIWebView *)myWebView didFailLoadWithError:(NSError *)error {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Internet"
+                                       message:[[[error userInfo] objectForKey:NSUnderlyingErrorKey] localizedDescription]
+                                      delegate:nil
+                             cancelButtonTitle:@"Ok"
+                             otherButtonTitles:nil];
+    [alert show];
 }
 
 @end

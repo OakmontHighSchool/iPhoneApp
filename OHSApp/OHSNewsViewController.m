@@ -49,6 +49,7 @@
                                  cancelButtonTitle:@"Ok"
                                  otherButtonTitles:nil];
         [alert show];
+        return;
     }
     for(int i=0;i<[titleNodes count];i++) {
         OHSNewsArticle *article = [[OHSNewsArticle alloc] init];

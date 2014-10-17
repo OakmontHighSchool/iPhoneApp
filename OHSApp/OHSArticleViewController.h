@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OHSArticleViewController : UIViewController
+@interface OHSArticleViewController : UIViewController <UIWebViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 

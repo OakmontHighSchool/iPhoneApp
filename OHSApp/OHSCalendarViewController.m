@@ -14,6 +14,7 @@ NSString *calendarUrl = @"http://ohs.rjuhsd.us/Page/2";
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+    [self.webView setDelegate:self];
     [self loadWebpage];
 }
 
@@ -34,6 +35,15 @@ NSString *calendarUrl = @"http://ohs.rjuhsd.us/Page/2";
     if(buttonIndex == 0) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:calendarUrl]];
     }
+}
+
+-(void)webView:(UIWebView *)myWebView didFailLoadWithError:(NSError *)error {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Internet"
+                                       message:[[[error userInfo] objectForKey:NSUnderlyingErrorKey] localizedDescription]
+                                      delegate:nil
+                             cancelButtonTitle:@"Ok"
+                             otherButtonTitles:nil];
+    [alert show];
 }
 
 @end
