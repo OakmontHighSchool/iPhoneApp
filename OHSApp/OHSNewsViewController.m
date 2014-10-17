@@ -38,7 +38,7 @@ UIAlertView *alert;
     
     NSMutableArray *newArticles = [[NSMutableArray alloc] initWithCapacity:10];
     if(titleNodes.count <= 0) {
-        [alert dismissWithClickedButtonIndex:0 animated:YES];
+        [self finishProgressBar];
         alert = [[UIAlertView alloc] initWithTitle:@"No Internet"
                                            message:@"Please connect your device to the internet."
                                           delegate:nil
