@@ -17,14 +17,13 @@ NSString *loginURLString = @"https://homelink.rjuhsd.us/LoginParent.aspx";
 NSString *logoutURLString = @"https://homelink.rjuhsd.us/Logout.aspx";
 
 NSMutableArray *classes;
-
--(void)viewDidLoad {
-    [self startProgressBar];
-}
+bool loadedData = false;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self downloadClasses];
+    if(!loadedData) {
+        [self downloadClasses];
+    }
 }
 
 UIAlertView *alert;
@@ -48,6 +47,7 @@ UIAlertView *alert;
     self.receivedData = [[NSMutableData alloc] init];
     [self.progressBar setProgress:0.3 animated:YES];
     [[NSURLConnection connectionWithRequest:request delegate:self] start];
+    loadedData = true;
 }
 
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {

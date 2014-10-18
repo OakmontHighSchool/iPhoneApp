@@ -15,18 +15,24 @@
 NSMutableArray *assignments;
 UIAlertView *alert;
 UIWebView *webView; //WebView for doing dirty things with
+NSString *hasDataFor = @"";
 
 NSString *detailUrl = @"https://homelink.rjuhsd.us/GradebookDetails.aspx";
 OHSProgressBarManager *barManager;
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
     self.navigationItem.title = [self.schoolClass name];
-    [self.progressBar setHidden:NO];
     barManager = [[OHSProgressBarManager alloc] initWithBar:self.progressBar];
+    webView = [[UIWebView alloc] init];
+    [webView setDelegate:self];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
-    [self downloadClasses];
+    [super viewDidAppear:animated];
+    if(![hasDataFor isEqualToString:self.schoolClass.name]) {
+        [self downloadClasses];
+    }
 }
 
 - (void)downloadClasses {
@@ -34,20 +40,13 @@ OHSProgressBarManager *barManager;
     assignments = [[NSMutableArray alloc] init];
     [self.tableView reloadData];
     
-    webView = [[UIWebView alloc] init];
-    [webView setDelegate:self];
     [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:detailUrl]]];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    
-    [self loadIds];
-}
-
--(void)loadIds {
     NSString *string = [NSString stringWithFormat:@"$('select option:contains(\\'%@\\')').prop({selected: true}).change();", self.schoolClass.name];
     [webView stringByEvaluatingJavaScriptFromString:string];
-    [self performSelector:@selector(loadAssignments) withObject:nil afterDelay:1];
+    [self performSelector:@selector(loadAssignments) withObject:nil afterDelay:1]; //THIS IS BAD, FIX ME
 }
 
 -(void)webView:(UIWebView *)myWebView didFailLoadWithError:(NSError *)error {
@@ -99,6 +98,7 @@ OHSProgressBarManager *barManager;
     
     [self.tableView reloadData];
     [barManager finishProgressBar];
+    hasDataFor = self.schoolClass.name;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
