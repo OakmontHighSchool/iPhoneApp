@@ -44,9 +44,18 @@ OHSProgressBarManager *barManager;
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    NSString *ajaxInject=@"$('#ctl00_MainContent_subGBS_upEverything').bind('DOMSubtreeModified', function(event){ window.location = 'fail://doneLoading'; });";
+    [webView stringByEvaluatingJavaScriptFromString:ajaxInject]; //Inject payload
     NSString *string = [NSString stringWithFormat:@"$('select option:contains(\\'%@\\')').prop({selected: true}).change();", self.schoolClass.name];
     [webView stringByEvaluatingJavaScriptFromString:string];
-    [self performSelector:@selector(loadAssignments) withObject:nil afterDelay:1]; //THIS IS BAD, FIX ME
+}
+
+-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    BOOL shouldNot = ![request.URL.absoluteString hasPrefix:@"fail"];
+    if([request.URL.absoluteString isEqualToString:@"fail://doneLoading"]) {
+        [self loadAssignments];
+    }
+    return shouldNot;
 }
 
 -(void)webView:(UIWebView *)myWebView didFailLoadWithError:(NSError *)error {
@@ -59,12 +68,13 @@ OHSProgressBarManager *barManager;
     [alert show];
 }
 
+NSString *rowSelectorBase = @"$('#ctl00_MainContent_subGBS_tblEverything table[style=\"border-collapse:collapse;border-style:none;\"] table')[0].children[0].children";
+
 -(void)loadAssignments {
-    NSString *base = @"$('#ctl00_MainContent_subGBS_tblEverything table[style=\"border-collapse:collapse;border-style:none;\"] table')[0].children[0].children";
-    NSInteger count = [[webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@.length",base]] integerValue];
+    NSInteger count = [[webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@.length",rowSelectorBase]] integerValue];
     
     for(int i=1;i<=count-1;i++) {
-        NSString *cellSelectorBase = [NSString stringWithFormat:@"%@[%u].children",base,i];
+        NSString *cellSelectorBase = [NSString stringWithFormat:@"%@[%u].children",rowSelectorBase,i];
         OHSAssignment *assign = [[OHSAssignment alloc] init];
         assign.desc = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[2].textContent",cellSelectorBase]];
         if(assign.desc.length > 7) {
