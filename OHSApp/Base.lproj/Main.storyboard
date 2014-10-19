@@ -146,7 +146,7 @@
                     <navigationItem key="navigationItem" title="Accounts" id="5aG-xt-ZVd">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="GxD-pJ-O90">
                             <connections>
-                                <segue destination="uVK-c1-EPf" kind="modal" id="0TG-BS-Sby"/>
+                                <segue destination="uVK-c1-EPf" kind="modal" identifier="AddAccount" id="0TG-BS-Sby"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="1rf-jx-GRC">

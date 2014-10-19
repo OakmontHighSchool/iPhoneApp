@@ -13,13 +13,12 @@
 
 @implementation OHSAccountsViewController
 
+bool addedAccount = NO;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.accountManager = [[OHSAccountManager alloc] init];
     [self.tableView reloadData];
-    if([self.accountManager.accounts count] <= 0) {
-        [self performSegueWithIdentifier:@"AddAccount" sender:nil];
-    }
 }
 
 BOOL isEditing = NO;
@@ -27,6 +26,10 @@ BOOL isEditing = NO;
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self reloadTable];
+    if([self.accountManager.accounts count] <= 0 && !addedAccount) {
+        addedAccount = YES;
+        [self performSegueWithIdentifier:@"AddAccount" sender:nil];
+    }
 }
 
 - (IBAction)editButtonPressed:(id)sender {
