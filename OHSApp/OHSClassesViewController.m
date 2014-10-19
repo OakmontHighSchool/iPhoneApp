@@ -18,6 +18,7 @@ NSString *logoutURLString = @"https://homelink.rjuhsd.us/Logout.aspx";
 
 NSMutableArray *classes;
 OHSAccount *loadedDataFor;
+bool loadInProgress = false;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -29,6 +30,9 @@ OHSAccount *loadedDataFor;
 UIAlertView *alert;
 
 - (void)downloadClasses {
+    if(loadInProgress) {
+        return;
+    }
     classes = [[NSMutableArray alloc] init];
     [self.tableView reloadData];
     [self startProgressBar];
@@ -155,12 +159,16 @@ UIAlertView *alert;
 }
 
 -(void)startProgressBar {
+    loadInProgress = true;
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     [self.progressBar setProgress:0 animated:NO];
     [self.progressBar setHidden:NO];
 }
 
 -(void)finishProgressBar {
     [self.progressBar setProgress:1 animated:YES];
+    loadInProgress = false;
+    self.navigationItem.rightBarButtonItem.enabled = YES;
     [NSTimer scheduledTimerWithTimeInterval:0.75 target:self selector:@selector(hideProgressBar) userInfo:nil repeats:NO];
 }
 
