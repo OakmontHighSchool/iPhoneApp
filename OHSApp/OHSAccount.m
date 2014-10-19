@@ -39,4 +39,8 @@
     [manager saveChangesFor:self index:self.index];
 }
 
+-(NSString*)accountAsString {
+    return [NSString stringWithFormat:@"%@:%@",self.name,self.email];
+}
+
 @end

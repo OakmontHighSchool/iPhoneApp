@@ -19,4 +19,6 @@
 -(void)save;
 -(void)update;
 
+-(NSString *)accountAsString;
+
 @end

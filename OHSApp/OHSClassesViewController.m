@@ -17,12 +17,12 @@ NSString *loginURLString = @"https://homelink.rjuhsd.us/LoginParent.aspx";
 NSString *logoutURLString = @"https://homelink.rjuhsd.us/Logout.aspx";
 
 NSMutableArray *classes;
-OHSAccount *loadedDataFor;
+NSString *loadedDataFor;
 bool loadInProgress = false;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if(loadedDataFor != self.account) {
+    if(![loadedDataFor isEqualToString:[self.account accountAsString]]) {
         [self downloadClasses];
     }
 }
@@ -51,7 +51,7 @@ UIAlertView *alert;
     self.receivedData = [[NSMutableData alloc] init];
     [self.progressBar setProgress:0.3 animated:YES];
     [[NSURLConnection connectionWithRequest:request delegate:self] start];
-    loadedDataFor = self.account;
+    loadedDataFor = [self.account accountAsString];
 }
 
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
