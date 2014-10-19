@@ -20,7 +20,7 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
-    barManager = [[OHSProgressBarManager alloc] initWithBar:self.progressBar];
+    barManager = [[OHSProgressBarManager alloc] initWithBar:self.progressBar andRefreshButton:self.navigationItem.rightBarButtonItem];
 }
 
 UIAlertView *alert;

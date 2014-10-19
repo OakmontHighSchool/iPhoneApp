@@ -11,11 +11,13 @@
 @implementation OHSProgressBarManager
 
 UIProgressView *bar;
+UIBarButtonItem *ref;
 
--(id)initWithBar:(UIProgressView*)_bar {
+-(id)initWithBar:(UIProgressView*)_bar andRefreshButton:(UIBarButtonItem *)_ref{
     self = [super init];
     if(self) {
         bar = _bar;
+        ref = _ref;
     }
     return self;
 }
@@ -23,11 +25,13 @@ UIProgressView *bar;
 -(void)startProgressBar {
     [bar setProgress:0 animated:NO];
     [bar setHidden:NO];
+    [ref setEnabled:NO];
     [self performSelector:@selector(increaseProgress) withObject:nil afterDelay:0.3];
 }
 
 -(void)finishProgressBar {
     [bar setProgress:1 animated:YES];
+    [ref setEnabled:YES];
     [NSTimer scheduledTimerWithTimeInterval:0.75 target:self selector:@selector(hideProgressBar) userInfo:nil repeats:NO];
 }
 

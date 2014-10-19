@@ -10,7 +10,7 @@
 
 @interface OHSProgressBarManager : NSObject
 
--(id)initWithBar:(UIProgressView*)_bar;
+-(id)initWithBar:(UIProgressView*)_bar andRefreshButton:(UIBarButtonItem*)_ref;
 -(void)startProgressBar;
 -(void)finishProgressBar;
 

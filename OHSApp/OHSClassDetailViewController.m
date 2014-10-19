@@ -23,7 +23,7 @@ OHSProgressBarManager *barManager;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = [self.schoolClass name];
-    barManager = [[OHSProgressBarManager alloc] initWithBar:self.progressBar];
+    barManager = [[OHSProgressBarManager alloc] initWithBar:self.progressBar andRefreshButton:self.navigationItem.rightBarButtonItem];
     webView = [[UIWebView alloc] init];
     [webView setDelegate:self];
 }

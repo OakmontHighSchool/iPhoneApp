@@ -16,7 +16,7 @@ OHSProgressBarManager *barManager;
 
 -(void)viewDidLoad {
     [super viewDidLoad];
-    barManager = [[OHSProgressBarManager alloc] initWithBar:self.progressBar];
+    barManager = [[OHSProgressBarManager alloc] initWithBar:self.progressBar andRefreshButton:self.navigationItem.rightBarButtonItem];
     [self.webView setDelegate:self];
     [self loadWebpage];
 }
