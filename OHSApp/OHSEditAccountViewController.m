@@ -18,6 +18,8 @@ BOOL newAccount = NO;
     if(self.account == nil) {
         newAccount = YES;
         self.account = [[OHSAccount alloc] init];
+    } else {
+        newAccount = NO;
     }
     
     [self.nameField setText:self.account.name];
@@ -85,10 +87,7 @@ BOOL newAccount = NO;
 }
 
 -(BOOL) NSStringIsValidEmail:(NSString *)checkString {
-    BOOL stricterFilter = NO; // Discussion http://blog.logichigh.com/2010/09/02/validating-an-e-mail-address/
-    NSString *stricterFilterString = @"[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}";
-    NSString *laxString = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*";
-    NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
+    NSString *emailRegex = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*";
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     return [emailTest evaluateWithObject:checkString];
 }
