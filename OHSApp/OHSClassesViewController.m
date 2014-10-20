@@ -23,6 +23,7 @@ bool loadInProgress = false;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    NSLog(@"%@:%@",loadedDataFor,self.account.accountAsString);
     if(![loadedDataFor isEqualToString:[self.account accountAsString]]) {
         [self downloadClasses];
     }
@@ -105,8 +106,8 @@ UIAlertView *alert;
                     cancelButtonTitle:@"OK"
                     otherButtonTitles:@"Edit Account",nil];
                 [alert show];
+                loadedDataFor = @""; //Force reload next time.
             }
-            loadedDataFor = @""; //Force reload next time.
             break;
         }
     }
