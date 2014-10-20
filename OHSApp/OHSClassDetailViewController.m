@@ -124,7 +124,7 @@ NSString *rowSelectorBase = @"$('#ctl00_MainContent_subGBS_tblEverything table[s
     
     OHSAssignment *assignment = (assignments)[indexPath.row];
     cell.textLabel.text = assignment.desc;
-    cell.detailTextLabel.text = assignment.percent;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@",assignment.score,assignment.percent];
     
     return cell;
 }
