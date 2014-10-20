@@ -54,7 +54,7 @@
 
 /* Begin PBXFileReference section */
 		A212F51919C3DEE300065CDD /* OHSClassesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHSClassesViewController.h; sourceTree = "<group>"; };
-		A212F51A19C3DEE300065CDD /* OHSClassesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHSClassesViewController.m; sourceTree = "<group>"; };
+		A212F51A19C3DEE300065CDD /* OHSClassesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHSClassesViewController.m; sourceTree = "<group>"; usesTabs = 0; };
 		A212F51C19C3DF0000065CDD /* OHSClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHSClass.h; sourceTree = "<group>"; };
 		A212F51D19C3DF0000065CDD /* OHSClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHSClass.m; sourceTree = "<group>"; };
 		A212F51F19C54C7E00065CDD /* OHSClassDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHSClassDetailViewController.h; sourceTree = "<group>"; };

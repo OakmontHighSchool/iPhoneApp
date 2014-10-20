@@ -12,7 +12,8 @@
 @interface OHSAccountsViewController : UITableViewController
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
-
 @property (strong, nonatomic) OHSAccountManager *accountManager;
+
+-(void)triggerEditAccount:(OHSAccount*)account;
 
 @end

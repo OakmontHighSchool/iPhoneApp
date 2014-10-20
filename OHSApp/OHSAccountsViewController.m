@@ -32,6 +32,13 @@ BOOL isEditing = NO;
     }
 }
 
+OHSAccount *tempAccount;
+
+-(void)triggerEditAccount:(OHSAccount*)account {
+    tempAccount = account;
+    [self performSegueWithIdentifier:@"editClass" sender:self];
+}
+
 - (IBAction)editButtonPressed:(id)sender {
     isEditing = !isEditing;
     [self setEditing:isEditing animated:YES];
@@ -97,7 +104,11 @@ BOOL isEditing = NO;
         //Get new view controller...
         UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
         OHSEditAccountViewController *controller = (OHSEditAccountViewController *)navController.topViewController;
-        controller.account = [self.accountManager.accounts objectAtIndex:rowId];
+        if(sender == self) {
+            controller.account = tempAccount;
+        } else {
+            controller.account = [self.accountManager.accounts objectAtIndex:rowId];
+        }
     }
 }
 

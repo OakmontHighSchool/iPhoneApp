@@ -217,6 +217,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="progressBar" destination="ET1-3j-5na" id="54r-Xk-Gtb"/>
+                        <segue destination="QRC-ZR-GLO" kind="modal" identifier="EditAccount" id="s4f-U6-XhG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2tm-YE-q2z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -803,4 +804,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="YZo-Ns-sJG"/>
+    </inferredMetricsTieBreakers>
 </document>

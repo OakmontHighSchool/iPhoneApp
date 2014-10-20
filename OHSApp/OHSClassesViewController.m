@@ -10,6 +10,7 @@
 #import "TFHpple.h"
 #import "OHSClass.h"
 #import "OHSClassDetailViewController.h"
+#import "OHSAccountsViewController.h"
 
 @implementation OHSClassesViewController
 
@@ -100,11 +101,12 @@ UIAlertView *alert;
             if(rowCount == 1) {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Credentials"
                     message:@"Either your email and password are wrong or Aeries is unavailable."
-                    delegate:nil
+                    delegate:self
                     cancelButtonTitle:@"OK"
-                    otherButtonTitles:nil];
+                    otherButtonTitles:@"Edit Account",nil];
                 [alert show];
             }
+            loadedDataFor = @""; //Force reload next time.
             break;
         }
     }
@@ -179,6 +181,13 @@ UIAlertView *alert;
     [self.progressBar.layer addAnimation:animation forKey:nil];
     
     self.progressBar.hidden = YES;
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    [self.navigationController popViewControllerAnimated:YES];
+    if(buttonIndex==1) {
+        [(OHSAccountsViewController*)self.navigationController.visibleViewController triggerEditAccount:self.account];
+    }
 }
 
 @end
