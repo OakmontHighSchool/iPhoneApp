@@ -67,10 +67,11 @@ UIAlertView *alert;
     [self finishProgressBar];
     alert = [[UIAlertView alloc] initWithTitle:@"No Internet"
                                        message:[[[error userInfo] objectForKey:NSUnderlyingErrorKey] localizedDescription]
-                                      delegate:nil
+                                      delegate:self
                              cancelButtonTitle:@"Ok"
                              otherButtonTitles:nil];
     [alert show];
+    loadedDataFor = @""; //Force reload next time.
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection {
