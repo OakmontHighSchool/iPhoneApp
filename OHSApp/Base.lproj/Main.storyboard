@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--News-->
@@ -107,7 +107,7 @@
             </objects>
             <point key="canvasLocation" x="653" y="504"/>
         </scene>
-        <!--Accounts-->
+        <!--Aeries Accounts-->
         <scene sceneID="30p-bd-2vN">
             <objects>
                 <tableViewController id="F4o-zo-JnF" customClass="OHSAccountsViewController" sceneMemberID="viewController">
@@ -143,7 +143,7 @@
                             <outlet property="delegate" destination="F4o-zo-JnF" id="L3j-cK-8WX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Accounts" id="5aG-xt-ZVd">
+                    <navigationItem key="navigationItem" title="Aeries Accounts" id="5aG-xt-ZVd">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="GxD-pJ-O90">
                             <connections>
                                 <segue destination="uVK-c1-EPf" kind="modal" identifier="AddAccount" id="0TG-BS-Sby"/>
@@ -280,7 +280,7 @@
             </objects>
             <point key="canvasLocation" x="1193" y="1193"/>
         </scene>
-        <!--Add Account-->
+        <!--Add Aeries Account-->
         <scene sceneID="EOL-wj-cLW">
             <objects>
                 <viewController id="gFT-rR-Upq" customClass="OHSEditAccountViewController" sceneMemberID="viewController">
@@ -310,7 +310,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Account" id="5gg-af-9k3">
+                    <navigationItem key="navigationItem" title="Add Aeries Account" id="5gg-af-9k3">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="yGw-3X-I2P">
                             <connections>
                                 <action selector="buttonPress:" destination="gFT-rR-Upq" id="hNZ-GI-LD4"/>
@@ -722,7 +722,7 @@
             </objects>
             <point key="canvasLocation" x="2498" y="505"/>
         </scene>
-        <!--Edit Account-->
+        <!--Edit Aeries Account-->
         <scene sceneID="wMh-OG-LTq">
             <objects>
                 <viewController id="YLv-Dy-uJn" customClass="OHSEditAccountViewController" sceneMemberID="viewController">
@@ -752,7 +752,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit Account" id="ZOB-ex-k5Q">
+                    <navigationItem key="navigationItem" title="Edit Aeries Account" id="ZOB-ex-k5Q">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="WJp-S4-S9V">
                             <connections>
                                 <action selector="buttonPress:" destination="YLv-Dy-uJn" id="WaA-u1-hjf"/>
