@@ -107,7 +107,7 @@
             </objects>
             <point key="canvasLocation" x="653" y="504"/>
         </scene>
-        <!--Aeries Accounts-->
+        <!--Homelink Accounts-->
         <scene sceneID="30p-bd-2vN">
             <objects>
                 <tableViewController id="F4o-zo-JnF" customClass="OHSAccountsViewController" sceneMemberID="viewController">
@@ -143,7 +143,7 @@
                             <outlet property="delegate" destination="F4o-zo-JnF" id="L3j-cK-8WX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Aeries Accounts" id="5aG-xt-ZVd">
+                    <navigationItem key="navigationItem" title="Homelink Accounts" id="5aG-xt-ZVd">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="GxD-pJ-O90">
                             <connections>
                                 <segue destination="uVK-c1-EPf" kind="modal" identifier="AddAccount" id="0TG-BS-Sby"/>
@@ -280,7 +280,7 @@
             </objects>
             <point key="canvasLocation" x="1193" y="1193"/>
         </scene>
-        <!--Add Aeries Account-->
+        <!--Login To Homelink-->
         <scene sceneID="EOL-wj-cLW">
             <objects>
                 <viewController id="gFT-rR-Upq" customClass="OHSEditAccountViewController" sceneMemberID="viewController">
@@ -292,25 +292,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name (Optional)" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3hN-Af-S6v">
-                                <rect key="frame" x="20" y="76" width="280" height="30"/>
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name (Optional)" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3hN-Af-S6v">
+                                <rect key="frame" x="16" y="153" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RrI-Th-HJ6">
-                                <rect key="frame" x="20" y="114" width="280" height="30"/>
+                                <rect key="frame" x="16" y="72" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Adc-4q-4Wc">
-                                <rect key="frame" x="20" y="152" width="280" height="30"/>
+                                <rect key="frame" x="16" y="110" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Aeries Account" id="5gg-af-9k3">
+                    <navigationItem key="navigationItem" title="Login To Homelink" id="5gg-af-9k3">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="yGw-3X-I2P">
                             <connections>
                                 <action selector="buttonPress:" destination="gFT-rR-Upq" id="hNZ-GI-LD4"/>
@@ -722,7 +722,7 @@
             </objects>
             <point key="canvasLocation" x="2498" y="505"/>
         </scene>
-        <!--Edit Aeries Account-->
+        <!--Edit Login Info-->
         <scene sceneID="wMh-OG-LTq">
             <objects>
                 <viewController id="YLv-Dy-uJn" customClass="OHSEditAccountViewController" sceneMemberID="viewController">
@@ -735,24 +735,24 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="PON-7B-MgB">
-                                <rect key="frame" x="20" y="114" width="280" height="30"/>
+                                <rect key="frame" x="20" y="72" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name (Optional)" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aPB-HE-7nw">
-                                <rect key="frame" x="20" y="76" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of Account (Optional)" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aPB-HE-7nw">
+                                <rect key="frame" x="20" y="148" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UXV-FC-02F">
-                                <rect key="frame" x="20" y="152" width="280" height="30"/>
+                                <rect key="frame" x="20" y="110" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit Aeries Account" id="ZOB-ex-k5Q">
+                    <navigationItem key="navigationItem" title="Edit Login Info" id="ZOB-ex-k5Q">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="WJp-S4-S9V">
                             <connections>
                                 <action selector="buttonPress:" destination="YLv-Dy-uJn" id="WaA-u1-hjf"/>
