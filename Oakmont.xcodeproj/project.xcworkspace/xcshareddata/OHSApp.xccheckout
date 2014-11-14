@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>31F085E0-E269-4275-BA30-21421A755E2E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>OHSApp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>67A4692661543DACBD51B4BE093874A4EA7A7B2D</key>
+		<string>github.com:OakmontHighSchool/iPhoneApp.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>OHSApp.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>67A4692661543DACBD51B4BE093874A4EA7A7B2D</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:OakmontHighSchool/iPhoneApp.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>67A4692661543DACBD51B4BE093874A4EA7A7B2D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>67A4692661543DACBD51B4BE093874A4EA7A7B2D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>OHSApp</string>
+		</dict>
+	</array>
+</dict>
+</plist>
