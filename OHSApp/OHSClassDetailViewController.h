@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "OHSClass.h"
+#import "OHSAccount.h"
 
 @interface OHSClassDetailViewController : UITableViewController<UIWebViewDelegate>
 
 @property (nonatomic, strong) OHSClass *schoolClass;
+@property (nonatomic, strong) OHSAccount *account;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 
 @end

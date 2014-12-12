@@ -154,6 +154,7 @@ UIAlertView *alert;
         OHSClassDetailViewController *controller = (OHSClassDetailViewController *)segue.destinationViewController;
         OHSClass *class = [classes objectAtIndex:rowId];
         controller.schoolClass = class;
+        controller.account = self.account;
     }
 }
 

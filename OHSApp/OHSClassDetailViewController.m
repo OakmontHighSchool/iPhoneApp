@@ -30,7 +30,7 @@ OHSProgressBarManager *barManager;
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if(![hasDataFor isEqualToString:self.schoolClass.name]) {
+    if(![hasDataFor isEqualToString:[NSString stringWithFormat:@"%@%@",self.schoolClass.name,self.account.name]]) {
         [self downloadClasses];
     }
 }
@@ -108,7 +108,7 @@ NSString *rowSelectorBase = @"$('#ctl00_MainContent_subGBS_tblEverything table[s
     
     [self.tableView reloadData];
     [barManager finishProgressBar];
-    hasDataFor = self.schoolClass.name;
+    hasDataFor = [NSString stringWithFormat:@"%@%@",self.schoolClass.name,self.account.name];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
