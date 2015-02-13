@@ -101,9 +101,7 @@ NSString *rowSelectorBase = @"$('#ctl00_MainContent_subGBS_tblEverything table[s
         assign.dateCompleted = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[9].textContent",cellSelectorBase]];
         assign.dateDue = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[10].textContent",cellSelectorBase]];
         assign.gradingComplete = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[11].textContent",cellSelectorBase]];
-        if(i != 1) {
-            [assignments addObject:assign];
-        }
+        [assignments addObject:assign];
     }
     
     [self.tableView reloadData];
