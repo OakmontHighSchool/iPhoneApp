@@ -37,6 +37,7 @@ OHSProgressBarManager *barManager;
 
 - (void)downloadClasses {
     [barManager startProgressBar];
+    hasDataFor = @"";
     assignments = [[NSMutableArray alloc] init];
     [self.tableView reloadData];
     
@@ -127,6 +128,13 @@ NSString *rowSelectorBase = @"$('#ctl00_MainContent_subGBS_tblEverything table[s
 
 - (IBAction)refreshButtonPress:(id)sender {
     [self downloadClasses];
+}
+
+-(void) viewWillDisappear:(BOOL)animated {
+    if ([self.navigationController.viewControllers indexOfObject:self] == NSNotFound) {
+        [webView setDelegate:NULL];
+    }
+    [super viewWillDisappear:animated];
 }
 
 @end
