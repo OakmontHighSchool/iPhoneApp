@@ -44,7 +44,7 @@ OHSProgressBarManager *barManager;
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    NSString *ajaxInject=@"$('#ctl00_MainContent_subGBS_upEverything').bind('DOMSubtreeModified', function(event){ window.location = 'fail://doneLoading'; });";
+    NSString *ajaxInject=@"$('#ctl00_MainContent_subGBS_upEverything').bind('DOMSubtreeModified', function(event){ window.location = 'fail://doneLoading'; $('#ctl00_MainContent_subGBS_upEverything').unbind(); });";
     [webView stringByEvaluatingJavaScriptFromString:ajaxInject]; //Inject payload
     NSString *string = [NSString stringWithFormat:@"$('select option:contains(\\'%@\\')').prop({selected: true}).change();", self.schoolClass.name];
     [webView stringByEvaluatingJavaScriptFromString:string];
@@ -68,7 +68,7 @@ OHSProgressBarManager *barManager;
     [alert show];
 }
 
-NSString *rowSelectorBase = @"$('#ctl00_MainContent_subGBS_tblEverything table[style=\"border-collapse:collapse;border-style:none;\"] table')[0].children[0].children";
+NSString *rowSelectorBase = @"$('#ctl00_MainContent_subGBS_tblEverything table[style=\"border-collapse:collapse; border-style:none;\"] table:first > tbody > tr[style!=\"display: none;\"]')";
 
 -(void)loadAssignments {
     NSInteger count = [[webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@.length",rowSelectorBase]] integerValue];
@@ -77,19 +77,6 @@ NSString *rowSelectorBase = @"$('#ctl00_MainContent_subGBS_tblEverything table[s
         NSString *cellSelectorBase = [NSString stringWithFormat:@"%@[%u].children",rowSelectorBase,i];
         OHSAssignment *assign = [[OHSAssignment alloc] init];
         assign.desc = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[2].textContent",cellSelectorBase]];
-        if(assign.desc.length > 7) {
-            assign.desc = [assign.desc substringFromIndex:6];
-            NSString *new = @"";
-            for(int i=0;i<assign.desc.length;i++) {
-                char c = [assign.desc characterAtIndex:i];
-                if(c != '\n') {
-                    new = [NSString stringWithFormat:@"%@%c",new,c];
-                } else {
-                    break;
-                }
-            }
-            assign.desc = new;
-        }
         assign.type = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[3].textContent",cellSelectorBase]];
         assign.category = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[4].textContent",cellSelectorBase]];
         NSString *first = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@[5].children[0].children[0].children[0].children[0].textContent",cellSelectorBase]];
