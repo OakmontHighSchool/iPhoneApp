@@ -143,6 +143,23 @@ UIAlertView *alert;
     cell.textLabel.text = class.name;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%%",class.percentage];
     
+    UIImage* image;
+    int percent = [class.percentage intValue];
+    
+    if(percent >= 90) { //A
+        image = [UIImage imageNamed:@"levelA"];
+    } else if(percent >= 80) { //B
+        image = [UIImage imageNamed:@"levelB"];
+    } else if(percent >= 70) { //C
+        image = [UIImage imageNamed:@"levelC"];
+    } else if(percent >= 60) { //D
+        image = [UIImage imageNamed:@"levelD"];
+    } else { // <= F
+        image = [UIImage imageNamed:@"levelF"];
+    }
+    
+    cell.imageView.image = image;
+    
     return cell;
 }
 
