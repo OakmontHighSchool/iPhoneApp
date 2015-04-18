@@ -47,7 +47,9 @@ OHSProgressBarManager *barManager;
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     NSString *ajaxInject=@"$('#ctl00_MainContent_subGBS_upEverything').bind('DOMSubtreeModified', function(event){ window.location = 'fail://doneLoading'; $('#ctl00_MainContent_subGBS_upEverything').unbind(); });";
     [webView stringByEvaluatingJavaScriptFromString:ajaxInject]; //Inject payload
-    NSString *string = [NSString stringWithFormat:@"$('select option:contains(\\'%@\\')').prop({selected: true}).change();", self.schoolClass.name];
+    NSRange lastDash = [self.schoolClass.name rangeOfString:@"-" options:NSBackwardsSearch];
+    NSString *fixedName = [self.schoolClass.name substringWithRange:NSMakeRange(0,lastDash.location-1)];
+    NSString *string = [NSString stringWithFormat:@"$('select option:contains(\\'%@\\')').prop({selected: true}).change();", fixedName];
     [webView stringByEvaluatingJavaScriptFromString:string];
 }
 
