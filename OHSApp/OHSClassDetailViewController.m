@@ -114,6 +114,23 @@ NSString *rowSelectorBase = @"$('#ctl00_MainContent_subGBS_tblEverything table[s
     cell.textLabel.text = assignment.desc;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@",assignment.score,assignment.percent];
     
+    UIImage* image;
+    int percent = [assignment.percent intValue];
+    
+    if(percent >= 90) { //A
+        image = [UIImage imageNamed:@"levelA"];
+    } else if(percent >= 80) { //B
+        image = [UIImage imageNamed:@"levelB"];
+    } else if(percent >= 70) { //C
+        image = [UIImage imageNamed:@"levelC"];
+    } else if(percent >= 60) { //D
+        image = [UIImage imageNamed:@"levelD"];
+    } else { // <= F
+        image = [UIImage imageNamed:@"levelF"];
+    }
+    
+    cell.imageView.image = image;
+    
     return cell;
 }
 
