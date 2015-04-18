@@ -14,6 +14,20 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>FooterText</key>
+			<string>Acknowledgements</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Icon pack by</string>
+			<key>FooterText</key>
+			<string>Svenkapudija on GitHub.com</string>
+		</dict>
 	</array>
 	<key>StringsTable</key>
 	<string>Root</string>
