@@ -83,7 +83,7 @@ OHSProgressBarManager *barManager;
         //Remove the rubish at the beginning
         url = [url substringFromIndex:5];
         //Add the proper domain
-        url = [NSString stringWithFormat:@"%@%@", @"http://ohs.rjuhsd.us", url];
+        url = [NSString stringWithFormat:@"%@%@", @"http://www.rjuhsd.us", url];
         controller.url = url;
     }
 }
