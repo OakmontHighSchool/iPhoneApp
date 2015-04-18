@@ -18,16 +18,16 @@ OHSProgressBarManager *barManager;
     [super viewDidLoad];
     barManager = [[OHSProgressBarManager alloc] initWithBar:self.progressBar andRefreshButton:self.navigationItem.rightBarButtonItem];
     [self.webView setDelegate:self];
-    [self loadWebpage];
+    [self refresh];
 }
 
-- (IBAction)refreshButtonPressed:(id)sender {
+- (void)refresh {
     [barManager startProgressBar];
     [self loadWebpage];
 }
 
 - (IBAction)actionButtonPressed:(id)sender {
-    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles: @"Open in Safari", nil];
+    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles: @"Open in Safari", @"Refresh", nil];
     [popup showInView:self.view];
 }
 
@@ -38,6 +38,8 @@ OHSProgressBarManager *barManager;
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if(buttonIndex == 0) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:websiteUrl]];
+    } else if(buttonIndex == 1) {
+        [self refresh];
     }
 }
 
@@ -48,6 +50,7 @@ OHSProgressBarManager *barManager;
                              cancelButtonTitle:@"Ok"
                              otherButtonTitles:nil];
     [alert show];
+    [barManager finishProgressBar];
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView {

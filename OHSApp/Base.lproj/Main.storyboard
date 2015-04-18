@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
         <!--News-->
@@ -356,14 +356,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Website" id="c3N-V4-Fmt"/>
                     <navigationItem key="navigationItem" title="Oakmont Website" id="jzC-Ir-THj">
-                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="RMP-RG-Cv4">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="RMP-RG-Cv4">
                             <connections>
                                 <action selector="actionButtonPressed:" destination="1ai-Pa-dEq" id="ri1-K0-QUx"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="an2-2h-vkX">
-                            <connections>
-                                <action selector="refreshButtonPressed:" destination="1ai-Pa-dEq" id="0lq-Yw-czX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -374,7 +369,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lPK-78-zVW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1193" y="1869"/>
+            <point key="canvasLocation" x="1176" y="1881"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EPk-py-74I">
@@ -402,12 +397,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="1ai-Pa-dEq" kind="relationship" relationship="rootViewController" id="cwx-70-6CP"/>
+                        <segue destination="1ai-Pa-dEq" kind="relationship" relationship="rootViewController" id="9k6-uH-Y1v"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Gb-hj-UoL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="646" y="1869"/>
+            <point key="canvasLocation" x="653" y="1881"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="4Jm-Au-YyX">
@@ -433,14 +428,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Calendar" id="tqA-PZ-VOO"/>
                     <navigationItem key="navigationItem" title="Calendar" id="DMD-fz-mGG">
-                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="KNl-6t-vAF">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="KNl-6t-vAF">
                             <connections>
                                 <action selector="actionButtonPressed:" destination="ftf-UD-u2u" id="6Gr-M6-Ibb"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="gtS-vd-dQp">
-                            <connections>
-                                <action selector="refreshButtonPressed:" destination="ftf-UD-u2u" id="Buj-6k-KjK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -451,7 +441,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRy-tG-67a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1193" y="2539"/>
+            <point key="canvasLocation" x="1182" y="2677"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="aFd-ME-S6N">
@@ -462,12 +452,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="ftf-UD-u2u" kind="relationship" relationship="rootViewController" id="dHq-v6-Hdf"/>
+                        <segue destination="ftf-UD-u2u" kind="relationship" relationship="rootViewController" id="5oJ-JX-3eh"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1D6-xL-hLY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="646" y="2539"/>
+            <point key="canvasLocation" x="653" y="2677"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Vex-rW-GRa">
