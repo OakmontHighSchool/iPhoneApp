@@ -146,8 +146,6 @@ UIAlertView *alert;
     if([[NSUserDefaults standardUserDefaults] objectForKey:@"enable_grade_icons"] == nil || [[NSUserDefaults standardUserDefaults] boolForKey:@"enable_grade_icons"]) {
         UIImage* image;
         NSString *percent = class.mark;
-        
-        NSLog(percent);
     
         if([percent rangeOfString:@"A"].location != NSNotFound) { //A
             image = [UIImage imageNamed:@"levelA"];
