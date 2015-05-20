@@ -114,7 +114,7 @@ NSString *rowSelectorBase = @"$('#ctl00_MainContent_subGBS_tblEverything table[s
     cell.textLabel.text = assignment.desc;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@",assignment.score,assignment.percent];
     
-    if([[NSUserDefaults standardUserDefaults] boolForKey:@"enable_grade_icons"]) {
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"enable_grade_icons"] == nil || [[NSUserDefaults standardUserDefaults] boolForKey:@"enable_grade_icons"]) {
         UIImage* image;
         int percent = [assignment.percent intValue];
         

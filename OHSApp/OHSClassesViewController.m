@@ -143,17 +143,19 @@ UIAlertView *alert;
     cell.textLabel.text = class.name;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%%",class.percentage];
     
-    if([[NSUserDefaults standardUserDefaults] boolForKey:@"enable_grade_icons"]) {
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"enable_grade_icons"] == nil || [[NSUserDefaults standardUserDefaults] boolForKey:@"enable_grade_icons"]) {
         UIImage* image;
-        int percent = [class.percentage intValue];
+        NSString *percent = class.mark;
+        
+        NSLog(percent);
     
-        if(percent >= 90) { //A
+        if([percent rangeOfString:@"A"].location != NSNotFound) { //A
             image = [UIImage imageNamed:@"levelA"];
-        } else if(percent >= 80) { //B
+        } else if([percent rangeOfString:@"B"].location != NSNotFound) { //B
             image = [UIImage imageNamed:@"levelB"];
-        } else if(percent >= 70) { //C
+        } else if([percent rangeOfString:@"C"].location != NSNotFound) { //C
             image = [UIImage imageNamed:@"levelC"];
-        } else if(percent >= 60) { //D
+        } else if([percent rangeOfString:@"D"].location != NSNotFound) { //D
             image = [UIImage imageNamed:@"levelD"];
         } else { // <= F
             image = [UIImage imageNamed:@"levelF"];
